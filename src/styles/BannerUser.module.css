@@ -1,0 +1,17 @@
+.banner{
+    position:absolute;
+    margin-top: 8rem;
+    margin-left: 11rem;
+    line-height: 1.5rem;
+}
+.banner p:first-child{
+    font-size: 2.5rem;
+    font-weight: 500;
+    padding-bottom: 2.5rem;
+}
+.banner p:first-child span{
+    color:#FF0101;
+}
+.banner p:nth-child(2){
+    font-size: 1rem;
+} 

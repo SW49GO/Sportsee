@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom'
 import { useContext, useEffect} from 'react'
 import {Context} from '../components/Context'
+import BannerUser from '../components/BannerUser'
 
 function Profil(){
     const url = useParams()
@@ -14,6 +15,7 @@ function Profil(){
 
     return (
         <>
+        <BannerUser user={url}/>
         <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, soluta!{url.UserId}</div>
         </>
     )
