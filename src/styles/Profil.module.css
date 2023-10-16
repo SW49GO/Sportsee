@@ -1,0 +1,17 @@
+.gridCharts{
+    position:absolute;
+    top:15rem;
+    left:11rem;
+    width: 80%;
+    display: grid;
+    grid-template-areas: 
+            "a a a b"
+            "c d e b";
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 15rem 15rem;
+    gap:1rem;
+    justify-content: center;
+}
+.barChart{
+    grid-area: a;
+}

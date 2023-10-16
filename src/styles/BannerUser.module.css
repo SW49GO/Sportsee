@@ -1,7 +1,7 @@
 .banner{
     position:absolute;
-    margin-top: 8rem;
-    margin-left: 11rem;
+    top: 8rem;
+    left: 11rem;
     line-height: 1.5rem;
 }
 .banner p:first-child{

@@ -1,9 +1,9 @@
-import {USER_MAIN_DATA} from '../dataMocked/datasMocked'
+import {USER_MAIN_DATA, USER_ACTIVITY} from '../dataMocked/datasMocked'
 import {ChangeUserMainData} from './changeUserMainData'
 
 
 // Bascule entre Environnement Dev (dataMocked) et Prod (Api)
-const modeEnvDev = 'false'
+const modeEnvDev = 'true'
 
 export async function getAllUser(){
     return USER_MAIN_DATA
@@ -37,3 +37,20 @@ export async function fetchMainData(userId,setDatas) {
           }
         }
     }
+
+
+    export async function fetchData(userId, setDatas, endpoint) {
+    if(process.env.REACT_APP_API_DEV === modeEnvDev){
+        if(endpoint === "activity"){
+            console.log('userIdFETCH:', userId)
+            const userActivity = USER_ACTIVITY.filter((user)=>{
+                    if(user.userId === parseInt(userId)){
+                      console.log(user)
+                        return user
+                    }
+                    return false
+                    })
+                setDatas(userActivity[0].sessions)
+        }
+    }
+}

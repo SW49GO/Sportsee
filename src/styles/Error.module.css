@@ -1,5 +1,5 @@
 .message{
     position:absolute;
-    margin-top: 10rem;
-    margin-left:10rem;
+    top: 10rem;
+    left:10rem;
 }
