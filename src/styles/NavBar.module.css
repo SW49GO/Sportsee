@@ -1,0 +1,34 @@
+.horizontal {
+    display: flex;
+    background-color: #000;
+    min-width: 64rem;
+    height: 5.6875rem;
+}
+.logo{
+    width: 20%;
+}
+.navHorizontal {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 80%;
+}
+.vertical {
+    position: absolute;
+    top: 5.6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 7.3125rem;
+    min-height: 64rem;
+    background-color: #000;
+}
+.navVertical{
+    position: relative;
+    top:-10rem;
+    width: 4.1rem;
+    margin: 0 auto;
+}
+.copiryght{
+    color:#FFF;
+}
