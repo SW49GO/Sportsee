@@ -9,7 +9,12 @@ export async function getAllUser(){
     return USER_MAIN_DATA
 }
 
-export async function fetchMainData(userId,setDatas) {
+/**
+ * Function to retrieve datas from USER_MAIN_DATA
+ * @param {string} userId the id of user
+ * @param {function} setDatas to initialize 'datas'
+ */
+export async function fetchMainData(userId, setDatas) {
     if(process.env.REACT_APP_API_DEV === modeEnvDev){
         const userMainData = USER_MAIN_DATA.find((user)=>{
           if(user.id === parseInt(userId)){
@@ -38,13 +43,17 @@ export async function fetchMainData(userId,setDatas) {
         }
     }
 
-
+    /**
+     * Function to retrieve Datas
+     * @param {object} userId ex:{'userId','12'}
+     * @param {function} setDatas to initialize State "datas"
+     * @param {string} endpoint the end of url
+     */
     export async function fetchData(userId, setDatas, endpoint) {
     if(process.env.REACT_APP_API_DEV === modeEnvDev){
-        if(endpoint === "activity"){
-            console.log('userIdFETCH:', userId)
+        if(endpoint === "activity" && userId){
             const userActivity = USER_ACTIVITY.filter((user)=>{
-                    if(user.userId === parseInt(userId)){
+                    if(user.userId === parseInt(userId.userId)){
                       console.log(user)
                         return user
                     }

@@ -15,7 +15,7 @@ function BarCharts(){
   
     // récupération des données de l'utilisteur
     useEffect(()=>{
-      fetchData(selectedUserId.userId, setDatas, "activity")
+      fetchData(selectedUserId, setDatas, "activity")
     },[selectedUserId])
     console.log('les datasBAR',datas)
 

@@ -17,14 +17,14 @@ function Profil(){
     },[])
 
     return (
-        <>
+        <div className={Styles.profil}>
         <BannerUser user={url}/>
         <div className={Styles.gridCharts}>
             <div className={Styles.barChart}>
                 <BarCharts/>
             </div>
         </div>
-        </>
+        </div>
     )
 }
 export default Profil

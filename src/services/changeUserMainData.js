@@ -1,4 +1,10 @@
+/**
+ * Function to change "todayScore" to "score"
+ * and translate the words in keyData in french version
+ * @param {object} user the datas retrieve from call api or dataMocked
+ */
 export function ChangeUserMainData(user){
+
     const keyDataMapping = {
         'calorieCount': 'calories',
         'proteinCount': 'proteines',
