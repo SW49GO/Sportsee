@@ -21,7 +21,8 @@ function Router(){
                     <Route exact path='/' element={<RedirectConnexion/>} />
                     <Route path='/user/connexion' element={<Connexion/>} />
                     <Route path='/user/:userId' element={<Profil/>} />
-                    <Route path='*' element={<Error />} />
+                    <Route path='/user/:userId/*' element={<Error message="true"/>}/>
+                    <Route path='*' element={<Error message="false"/>} />
                 </Routes>
             </BrowserRouter>
             )
