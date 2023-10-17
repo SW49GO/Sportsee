@@ -11,7 +11,7 @@ function Router(){
     /**
      * Function to select the user
      */
-    function RedirectConnexion() {
+    const RedirectConnexion=()=> {
         return <Navigate to='/user/connexion'/>;
       }
 

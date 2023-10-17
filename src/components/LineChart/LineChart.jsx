@@ -1,4 +1,4 @@
-import { LineChart, ResponsiveContainer,XAxis,YAxis,Tooltip,Line} from "recharts";
+import { LineChart, ResponsiveContainer,XAxis,YAxis,Tooltip,Line, Rectangle} from "recharts";
 import { fetchData } from '../../services/api'
 import { useContext, useState,useEffect} from 'react'
 import { Context } from '../Context'
@@ -22,6 +22,16 @@ function LineCharts(){
         return data[item]
       };
       console.log('les datasLINECHART',datas)
+
+      const CustomCursor = (props) => {
+        const { points, width, height } = props;
+        const { x, y } = points[0];
+        console.log(props);
+        return (
+          <Rectangle fill="#000000" opacity={0.1} x={x} y={y} width={width+50} height={height+50}/>
+        );
+      }
+
     if(datas){
      return(
         <>
@@ -31,14 +41,15 @@ function LineCharts(){
         // width={500} 
         // height={250} 
         data={datas}
-        margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+        margin={{ top: 0, right: 30, left: 20, bottom: 5 }}
         >
-        <XAxis dataKey="day" axisLine={false} tickLine={false} tickFormatter={formatDay} padding={{ right: -20, left: -10 }}/>
+        <XAxis dataKey="day" axisLine={false} tickLine={false} tick={{fill:'#FFF'}} tickFormatter={formatDay} padding={{ right: -20, left: -10 }}/>
         <YAxis hide domain={['dataMin-10', 'dataMax+10']}  />
-        {/* cursor={{ stroke : "rgba(0, 0, 0, 0.1)", strokeWidth : 100}}  */}
-        <Tooltip content={<CustomToolTip />} cursor={false}/>
+        {/* Outils pour customiser l'affichage du rectangle et le curseur */}
+        <Tooltip content={<CustomToolTip />} cursor={<CustomCursor />}/>
         {/* Le point(billes) actif s'affiche lorsqu'un utilisateur entre dans un graphique linéaire et ce graphique comporte une info-bulle */}
-        <Line type="natural" dataKey="sessionLength" strokeWidth={2} stroke="#FFF" activeDot={{ stroke: '#FFF', strokeWidth: 4, r: 2}} dot={false} />
+        {/*stroke: couleur bordure avec opacity, strokeWidth:largeur de la bordure, r:rayon  */}
+        <Line type="natural" dataKey="sessionLength" strokeWidth={2} stroke="#FFF" activeDot={{ stroke: 'rgba(255, 255, 255, 0.25)', strokeWidth: 10, r: 4}} dot={false} />
         </LineChart>
         </ResponsiveContainer>
         </>

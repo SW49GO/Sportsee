@@ -20,10 +20,10 @@ export async function fetchMainData(userId, setDatas) {
     if(process.env.REACT_APP_API_DEV === modeEnvDev){
         const userMainData = USER_MAIN_DATA.find((user)=>{
             // récupérer l'id en cas d'envoi d'un objet au lien d'un string
-            if(userId.userId){
+            if(userId && userId.userId){
                 userId=userId.userId
             }
-            if(user.id === parseInt(userId)){
+            if(userId && user.id === parseInt(userId)){
                 if(user!== null){
                     // Replace todayScore and translate keyData
                     ChangeUserMainData(user)
