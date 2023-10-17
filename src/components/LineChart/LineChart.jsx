@@ -28,11 +28,10 @@ function LineCharts(){
         <h3 className={Styles.title}>Durée moyenne des sessions</h3>
         <ResponsiveContainer width="100%" height="100%" className={Styles.container}>
         <LineChart 
-        width={500} 
-        height={250} 
+        // width={500} 
+        // height={250} 
         data={datas}
         margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
-    // margin={{ top: 5, bottom: 5 }}
         >
         <XAxis dataKey="day" axisLine={false} tickLine={false} tickFormatter={formatDay} padding={{ right: -20, left: -10 }}/>
         <YAxis hide domain={['dataMin-10', 'dataMax+10']}  />

@@ -4,8 +4,8 @@
     overflow: hidden;
 }
 .title{
-    position:relative;
-    top:3rem;
+    position:absolute;
+    top:1.5rem;
     left:1rem;
     font-size: .9375rem;
     font-weight: 500;

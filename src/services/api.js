@@ -1,5 +1,6 @@
-import {USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS} from '../dataMocked/datasMocked'
+import {USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE} from '../dataMocked/datasMocked'
 import {ChangeUserMainData} from './changeUserMainData'
+import { TranslateUserPerformance } from './translateUserPerformance'
 
 
 // Bascule entre Environnement Dev (dataMocked) et Prod (Api)
@@ -69,6 +70,19 @@ export async function fetchMainData(userId, setDatas) {
         return false
         })
         setDatas(userSessions[0].sessions)
-    }
+        }
+        if(endpoint === "performance" && userId){
+            const userPerformance = USER_PERFORMANCE.filter((user)=>{
+                if(user.userId === parseInt(userId.userId)){
+                    if(user!==null){
+                        TranslateUserPerformance(user)
+                    }
+                    return user
+                }
+                return false
+                })
+                console.log('userPerformance',userPerformance)
+                    setDatas( userPerformance[0])
+        }
     }
 }

@@ -5,6 +5,7 @@ import BannerUser from '../components/BannerUser'
 import Styles from '../styles/Profil.module.css'
 import BarCharts from '../components/BarChart/BarChart'
 import LineCharts from '../components/LineChart/LineChart'
+import RadarCharts from '../components/RadarChart/RadarChart'
 
 function Profil(){
     const url = useParams()
@@ -26,6 +27,9 @@ function Profil(){
             </div>
             <div className={Styles.lineChart}>
                 <LineCharts/>
+            </div>
+            <div className={Styles.radarChart}>
+                <RadarCharts/>
             </div>
         </div>
         </div>

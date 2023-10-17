@@ -16,5 +16,9 @@
     grid-area: a;
 }
 .lineChart{
+    position:relative;
     grid-area: c;
+}
+.radarChart{
+    grid-area: d;
 }
