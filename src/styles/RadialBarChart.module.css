@@ -1,0 +1,38 @@
+.container{
+    background-color: #FBFBFB;
+    border-radius: 5px;
+}
+.title{
+    position:absolute;
+    top:1.5rem;
+    left:1.5rem;
+    font-size: .9375rem;
+    font-weight: 500;
+}
+.circle{
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 11rem;
+    height: 11rem;
+    border-radius: 50%;
+    background-color: #fff;
+}
+.legend{
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 4rem;
+    text-align: center;
+}
+.legend p:first-child{
+    font-size: 1.625rem;
+    font-weight: 700;
+    line-height: 2rem;
+}
+.legend p:nth-child(2){
+    font-size: 1rem;
+    font-weight: 500;
+}

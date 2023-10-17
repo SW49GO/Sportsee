@@ -12,20 +12,25 @@ export async function getAllUser(){
 
 /**
  * Function to retrieve datas from USER_MAIN_DATA
- * @param {string} userId the id of user
+ * @param {string or object} userId the id of user
  * @param {function} setDatas to initialize 'datas'
  */
 export async function fetchMainData(userId, setDatas) {
+    console.log('userIdFETCHMAIN:', userId)
     if(process.env.REACT_APP_API_DEV === modeEnvDev){
         const userMainData = USER_MAIN_DATA.find((user)=>{
-          if(user.id === parseInt(userId)){
-            if(user!== null){
-                // Replace todayScore and translate keyData
-                ChangeUserMainData(user)
+            // récupérer l'id en cas d'envoi d'un objet au lien d'un string
+            if(userId.userId){
+                userId=userId.userId
             }
-              return user
-          }
-          return false
+            if(user.id === parseInt(userId)){
+                if(user!== null){
+                    // Replace todayScore and translate keyData
+                    ChangeUserMainData(user)
+                }
+                return user
+            }
+            return false
           })
         setDatas(userMainData)
     }else{

@@ -22,3 +22,7 @@
 .radarChart{
     grid-area: d;
 }
+.radialBarChart{
+    position:relative;
+    grid-area: e;
+}
