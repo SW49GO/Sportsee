@@ -25,8 +25,8 @@ if (datas){
         <div className={Styles.legend}><p>{dataArray[0].name}</p><p>de votre objectif</p></div>
             <ResponsiveContainer width="100%" height="100%" className={Styles.container}>
                 <RadialBarChart 
-                    width={80} 
-                    height={500} 
+                    width={258} 
+                    height={263} 
                     innerRadius="80%" 
                     outerRadius="80%" 
                     barSize={10}

@@ -1,28 +1,47 @@
-.gridCharts{
-    position:absolute;
-    top:15rem;
-    left:11rem;
-    width: 80%;
-    display: grid;
-    grid-template-areas: 
-            "a a a b"
-            "c d e b";
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 15rem 15rem;
-    gap:1rem;
-    justify-content: center;
+.profil{
+    display: flex;
+    flex-direction: column;
+    min-height: 780px;
+    min-width: 1024px;
+    padding-left: 7.3125rem;
+    padding-top: 5.6875rem;
+}
+.container{
+    display: flex;
+}
+.containerCharts{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
 }
 .barChart{
-    grid-area: a;
+    height: 15rem;
+    width: 90%;
+    margin-left: 4rem;
+    margin-top: 2rem;
 }
-.lineChart{
+.containerCharts2{
+    display: flex;
+    flex-direction: row;
+    height: 15rem;
+    margin-left: 4rem;
+    margin-top: 2.5rem;
+    width: 90%;
+}
+
+.lineChart, .radarChart, .radialBarChart{
     position:relative;
-    grid-area: c;
+    width: 33%;
+    height: 15rem;
 }
-.radarChart{
-    grid-area: d;
+.lineChart, .radarChart{
+    margin-right: 1rem;
 }
-.radialBarChart{
-    position:relative;
-    grid-area: e;
+
+.containerCards{
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    margin-top: 2.5rem;
+    height: 32.5rem;
 }

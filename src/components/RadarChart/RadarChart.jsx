@@ -38,8 +38,8 @@ console.log("newdata",newDatas)
      if(datas){
         return(
             <>
-            <ResponsiveContainer className={Styles.container}>
-                <RadarChart outerRadius={90} width={730} height={250} data={newDatas.data}>
+            <ResponsiveContainer width="100%" height="100%" className={Styles.container}>
+                <RadarChart data={newDatas.data} >
                     {/* sans ligne vertical vers le centre */}
                     <PolarGrid radialLines={false}/>
                     {/*  tickFormatter={(value) => value.charAt(0).toUpperCase() + value.slice(1)} mettre la 1ere lettre en majuscule de value */}
