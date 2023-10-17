@@ -4,6 +4,7 @@ import {Context} from '../components/Context'
 import BannerUser from '../components/BannerUser'
 import Styles from '../styles/Profil.module.css'
 import BarCharts from '../components/BarChart/BarChart'
+import LineCharts from '../components/LineChart/LineChart'
 
 function Profil(){
     const url = useParams()
@@ -22,6 +23,9 @@ function Profil(){
         <div className={Styles.gridCharts}>
             <div className={Styles.barChart}>
                 <BarCharts/>
+            </div>
+            <div className={Styles.lineChart}>
+                <LineCharts/>
             </div>
         </div>
         </div>

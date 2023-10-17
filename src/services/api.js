@@ -1,4 +1,4 @@
-import {USER_MAIN_DATA, USER_ACTIVITY} from '../dataMocked/datasMocked'
+import {USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS} from '../dataMocked/datasMocked'
 import {ChangeUserMainData} from './changeUserMainData'
 
 
@@ -61,5 +61,14 @@ export async function fetchMainData(userId, setDatas) {
                     })
                 setDatas(userActivity[0].sessions)
         }
+        if(endpoint === "average-sessions"  && userId){
+        const userSessions = USER_AVERAGE_SESSIONS.filter((user)=>{
+            if(user.userId === parseInt(userId.userId)){
+                return user
+            }
+        return false
+        })
+        setDatas(userSessions[0].sessions)
+    }
     }
 }

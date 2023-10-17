@@ -16,7 +16,6 @@ export function ChangeUserMainData(user){
         user["score"] = user.todayScore
           delete user["todayScore"];
         }
-        // console.log('model',user.keyData)
 
     const updatedKeyData = {};
     for (const key in user.keyData) {
@@ -27,6 +26,4 @@ export function ChangeUserMainData(user){
         }
     }
     user.keyData = updatedKeyData;
-        // console.log(user);
-
 }

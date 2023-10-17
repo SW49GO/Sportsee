@@ -15,9 +15,6 @@
 .barChart{
     grid-area: a;
 }
-
-@media screen and (min-width: 768px) and (max-width: 1023.98px) {
-    .profil{
-        background-color: rgba(238, 113, 113, 0.02);
-    }
+.lineChart{
+    grid-area: c;
 }
