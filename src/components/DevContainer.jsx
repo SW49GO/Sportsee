@@ -38,11 +38,21 @@ function DevContainer(){
         )
         }else if(page['*']==="average-sessions"){
         return (
-            <div className={Styles.container}><LineCharts/></div>
+            <div className={Styles.container}>
+                <div className={Styles.lineChart}>
+                    <h2>Durée moyenne des sessions :</h2>
+                    <LineCharts/>
+                </div>
+            </div>
         )
         }else if(page['*']==="performance"){
             return (
-                <div className={Styles.container}><RadarCharts/></div>
+                <div className={Styles.container}>
+                    <div className={Styles.radarChart}>
+                        <h3>Types d'activités :</h3>
+                        <RadarCharts/>
+                    </div>
+                </div>
             )
         }
     }else{

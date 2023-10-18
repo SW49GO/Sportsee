@@ -15,3 +15,15 @@
     height: 20rem;
     margin-top: 4rem;
 }
+.radarChart h3, .lineChart h2{
+    display: inline-block;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid #000;
+}
+.radarChart, .lineChart{
+    width: 50%;
+    height: 20rem;
+    margin: 0 auto;
+    margin-top: 4rem;
+}
+
