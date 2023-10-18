@@ -10,14 +10,12 @@ function BarCharts(){
 
  // récupération de l'id du context
     const {selectedUserId } = useContext(Context);
-    console.log('selectedUserIdBARCHAR:', selectedUserId)
     const [datas, setDatas] = useState(null)
   
     // récupération des données de l'utilisteur
     useEffect(()=>{
       fetchData(selectedUserId, setDatas, "activity")
     },[selectedUserId])
-    console.log('les datasBAR',datas)
 
     if(datas){
     return (

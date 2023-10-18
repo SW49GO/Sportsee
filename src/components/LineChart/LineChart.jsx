@@ -21,7 +21,6 @@ function LineCharts(){
         const data = {1: 'L',2: 'M',3: 'M',4: 'J',5: 'V',6: 'S',7: 'D'};
         return data[item]
       };
-      console.log('les datasLINECHART',datas)
 
       const CustomCursor = (props) => {
         const { points, width, height } = props;

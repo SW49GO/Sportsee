@@ -1,6 +1,7 @@
 .container{
     background-color: #FF0000;
     border-radius: .3125rem;
+    border:1px solid black;
 }
 .title{
     position:absolute;
@@ -9,4 +10,5 @@
     width: 9rem;
     color:#fff;
     opacity: 0.5;
+    margin: 0.5rem;
 }

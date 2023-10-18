@@ -6,14 +6,13 @@ import Styles from '../../styles/RadialBarChart.module.css'
 
 function RadialBarCharts(){
      const {selectedUserId } = useContext(Context);
-     console.log('selectedUserIdRADIAL:', selectedUserId)
+    //  console.log('selectedUserIdRADIAL:', selectedUserId)
      const [datas, setDatas] = useState(null)
 
      // récupération des données de l'utilisteur
      useEffect(()=>{
        fetchMainData(selectedUserId, setDatas)
      },[selectedUserId])
-     console.log('datasRADIAL:', datas)
 
 if (datas){
  const dataArray = [{ name: datas.score * 100 + '%', value: datas.score * 100, fill: "#ff0000"}]

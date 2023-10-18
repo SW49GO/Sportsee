@@ -5,43 +5,52 @@
     min-width: 1024px;
     padding-left: 7.3125rem;
     padding-top: 5.6875rem;
+    width: 90%;
 }
 .container{
     display: flex;
+    width: 100%;
+    border:1px solid red;
 }
 .containerCharts{
     display: flex;
     flex-direction: column;
-    width: 70%;
+    width: 80%;
+    border:1px solid green;
 }
 .barChart{
     height: 15rem;
     width: 90%;
-    margin-left: 4rem;
-    margin-top: 2rem;
+    margin-left: 3rem;
+    border:1px solid yellow;
+    margin-bottom: 2rem;
 }
 .containerCharts2{
     display: flex;
     flex-direction: row;
-    height: 15rem;
-    margin-left: 4rem;
-    margin-top: 2.5rem;
+    justify-content: space-between;
+    height: 14rem;
+    margin-left: 3rem;
+    margin-top: 2rem;
     width: 90%;
+    border:1px solid blue;
 }
 
 .lineChart, .radarChart, .radialBarChart{
     position:relative;
-    width: 33%;
-    height: 15rem;
+    width: 30%;
+    /* height: 13rem; */
+    border:1px solid orange;
 }
-.lineChart, .radarChart{
-    margin-right: 1rem;
-}
+/* .lineChart, .radarChart{
+    margin-right: 2rem;
+} */
 
 .containerCards{
     display: flex;
     flex-direction: column;
-    width: 20%;
-    margin-top: 2.5rem;
-    height: 32.5rem;
+    margin-left: 1rem;
+    /* width: 24%; */
+    /* height: 32.5rem; */
+    border:1px solid black;
 }

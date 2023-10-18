@@ -9,17 +9,18 @@ function RadarCharts(){
      // récupération de l'id du context
      const {selectedUserId } = useContext(Context);
      const [datas, setDatas] = useState(null)
+   
 
    
      // récupération des données de l'utilisteur
      useEffect(()=>{
        fetchData(selectedUserId, setDatas, "performance")
      },[selectedUserId])
-     console.log('datasRADAR:', datas)
      // creation d'un objet pour reformater les données à partir de (kind et data)
     let newDatas={}
+    
     if(datas!==null){
-        console.log('RADARCHART:',datas)
+        console.log('datasRADAR:', datas)
         const kindDatas = datas.kind
 
         newDatas = {
@@ -33,7 +34,6 @@ function RadarCharts(){
         //inverse l'ordre des objets de kind dans data
         newDatas.data.reverse();
     }
-console.log("newdata",newDatas)
 
      if(datas){
         return(

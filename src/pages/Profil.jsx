@@ -15,7 +15,7 @@ function Profil(){
     const url = useParams()
     const [datas, setDatas] = useState(null)
     const { handleUserSelect} = useContext(Context);
-    console.log('userProfil:', url.userId)
+    // console.log('userProfil:', url.userId)
 
     // Send url to Context one time
     useEffect(()=>{

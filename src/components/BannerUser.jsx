@@ -10,7 +10,7 @@ function BannerUser(props){
 
     // State pour stocker les données
     const [datas, setDatas] = useState(null)
-    console.log('datasBANNER:', datas)
+    // console.log('datasBANNER:', datas)
 
     // récupération des données selon l'id de l'utilisateur
     useEffect(()=>{
@@ -23,7 +23,7 @@ if(datas){
         <div className={Styles.banner}>
             <p>Bonjour <span>{datas.userInfos.firstName.charAt(0).toUpperCase() + datas.userInfos.firstName.slice(1)}</span></p>
             <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
-            </div>
+        </div>
     )
 }else{
     return(

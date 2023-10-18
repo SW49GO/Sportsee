@@ -7,7 +7,7 @@ import {Context} from '../components/Context'
 function NavBar() {
 // récupération de l'Id de l'utilisateur
   const { selectedUserId } = useContext(Context);
-  console.log('selectedUserIdNAVBAR:', selectedUserId)
+  // console.log('selectedUserIdNAVBAR:', selectedUserId)
 
   return (
     <section>

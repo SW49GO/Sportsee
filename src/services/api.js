@@ -4,7 +4,7 @@ import { TranslateUserPerformance } from './translateUserPerformance'
 
 
 // Bascule entre Environnement Dev (dataMocked) et Prod (Api)
-const modeEnvDev = 'true'
+const modeEnvDev = 'false'
 
 export async function getAllUser(){
     return USER_MAIN_DATA
@@ -17,12 +17,14 @@ export async function getAllUser(){
  */
 export async function fetchMainData(userId, setDatas) {
     console.log('userIdFETCHMAIN:', userId)
+    // récupérer l'id en cas d'envoi d'un objet au lien d'un string
+    if(userId && userId.userId){
+    userId=userId.userId
+    }
+
     if(process.env.REACT_APP_API_DEV === modeEnvDev){
+
         const userMainData = USER_MAIN_DATA.find((user)=>{
-            // récupérer l'id en cas d'envoi d'un objet au lien d'un string
-            if(userId && userId.userId){
-                userId=userId.userId
-            }
             if(userId && user.id === parseInt(userId)){
                 if(user!== null){
                     // Replace todayScore and translate keyData
@@ -56,10 +58,15 @@ export async function fetchMainData(userId, setDatas) {
      * @param {string} endpoint the end of url
      */
     export async function fetchData(userId, setDatas, endpoint) {
+    // récupérer l'id en cas d'envoi d'un objet au lien d'un string
+     if(userId && userId.userId){
+        userId=userId.userId
+        }
+        console.log('userIdFETCHDATA:', userId)
     if(process.env.REACT_APP_API_DEV === modeEnvDev){
         if(endpoint === "activity" && userId){
             const userActivity = USER_ACTIVITY.filter((user)=>{
-                    if(user.userId === parseInt(userId.userId)){
+                    if(user.userId === parseInt(userId)){
                       console.log(user)
                         return user
                     }
@@ -69,7 +76,7 @@ export async function fetchMainData(userId, setDatas) {
         }
         if(endpoint === "average-sessions"  && userId){
         const userSessions = USER_AVERAGE_SESSIONS.filter((user)=>{
-            if(user.userId === parseInt(userId.userId)){
+            if(user.userId === parseInt(userId)){
                 return user
             }
         return false
@@ -78,7 +85,7 @@ export async function fetchMainData(userId, setDatas) {
         }
         if(endpoint === "performance" && userId){
             const userPerformance = USER_PERFORMANCE.filter((user)=>{
-                if(user.userId === parseInt(userId.userId)){
+                if(user.userId === parseInt(userId)){
                     if(user!==null){
                         TranslateUserPerformance(user)
                     }
@@ -86,8 +93,33 @@ export async function fetchMainData(userId, setDatas) {
                 }
                 return false
                 })
-                console.log('userPerformance',userPerformance)
-                    setDatas( userPerformance[0])
+        setDatas( userPerformance[0])
         }
+    }else{
+        try{
+            console.log("FETCHUSER_ID",userId)
+            const response = await fetch (`http://localhost:3000/user/${userId}/${endpoint}`)
+            const results = await response.json()
+      
+            if(endpoint === "activity"){
+              console.log('FETCHAVTIVITY',results.data)
+              setDatas(results.data.sessions)
+                }
+            if(endpoint === "average-sessions"){
+                console.log('FETCHAVERAGE',results.data)
+                setDatas(results.data.sessions)
+                }
+            if(endpoint === "performance"){
+                if(results.data!==null){
+                    TranslateUserPerformance(results.data)
+                }
+                console.log('FETCHPERFORMANCE',results.data)
+                setDatas(results.data)
+                }
+            }
+            catch(err){
+              console.log(err)
+              setDatas('')
+            }
     }
 }
