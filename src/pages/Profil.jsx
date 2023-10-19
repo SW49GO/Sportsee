@@ -22,7 +22,9 @@ function Profil(){
     if(Object.keys(url).length === 1){
         return (
             <div className={Styles.profil}>
+                <div className={Styles.profilContainer}>
                 <UserProfil url={url}/>
+                </div>
             </div>
         )
     }else if(mode){

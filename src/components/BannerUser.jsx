@@ -27,7 +27,7 @@ if(datas){
                     <p>Bonjour <span>{datas.userInfos.firstName.charAt(0).toUpperCase() + datas.userInfos.firstName.slice(1)}</span></p>
                     <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
                     </>
-                    :<><p>Utilisateur: <span>{datas.userInfos.lastName.charAt(0).toUpperCase() + datas.userInfos.lastName.slice(1)} {datas.userInfos.firstName.charAt(0).toUpperCase() + datas.userInfos.firstName.slice(1)} - {datas.userInfos.age} ans</span></p>
+                    :<><p>Utilisateur: </p><p>{datas.userInfos.lastName.charAt(0).toUpperCase() + datas.userInfos.lastName.slice(1)} {datas.userInfos.firstName.charAt(0).toUpperCase() + datas.userInfos.firstName.slice(1)}</p><p>Age : {datas.userInfos.age} ans</p>
                     </>
             }
         </div>

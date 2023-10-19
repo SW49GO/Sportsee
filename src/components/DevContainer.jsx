@@ -10,23 +10,24 @@ import Error from './Error'
 
 function DevContainer(){
     // récupération du endpoint de l'url
-    const page = useParams()
-    console.log('page:', page)
+    const url = useParams()
+    console.log('url:', url)
     const [datas, setDatas] = useState(null)
       // Récupération des données pour créer les cartes
       useEffect(()=>{
-        fetchMainData(page.userId,setDatas)
-    },[page])
+        fetchMainData(url.userId,setDatas)
+    },[url])
     let keyDataArray, valueDataArray
 
     if(datas){
     keyDataArray = Object.keys(datas.keyData)
     valueDataArray = Object.values(datas.keyData)
-        if(page['*']==="activity"){
+        if(url['*']==="activity"){
         return (
             <div className={Styles.container}>
                 <div className={Styles.barCharts}>
-                <BarCharts/>
+                    <h3>Poids et calories brûlées + les calories, protéines, glucides et lipides de la journée:</h3>
+                    <BarCharts/>
                 </div>
                 <div className={Styles.cards}>
                     {keyDataArray.map((name, index) => (
@@ -36,7 +37,7 @@ function DevContainer(){
                 </div>
             </div>
         )
-        }else if(page['*']==="average-sessions"){
+        }else if(url['*']==="average-sessions"){
         return (
             <div className={Styles.container}>
                 <div className={Styles.lineChart}>
@@ -45,7 +46,7 @@ function DevContainer(){
                 </div>
             </div>
         )
-        }else if(page['*']==="performance"){
+        }else if(url['*']==="performance"){
             return (
                 <div className={Styles.container}>
                     <div className={Styles.radarChart}>

@@ -7,7 +7,6 @@ function MonProvider({ children }) {
 
 // State pour stocker l'id de l'utilisateur
   const [selectedUserId, setSelectedUserId] = useState(null);
-  // console.log('selectedUserIdCONTEXT:', selectedUserId)
 
   // Forcer le mode d'environnement Prod ou Dev pour l'utilisateur
   const mode =process.env.REACT_APP_DEVELOPPER==="true"
@@ -15,7 +14,6 @@ function MonProvider({ children }) {
 
 // fonction pour mettre à jour l'id de l'utilisateur
   const handleUserSelect = (userId) => {
-    // console.log('Context', userId)
     setSelectedUserId(userId);
   };
 

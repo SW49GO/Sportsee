@@ -5,25 +5,32 @@
 }
 .barCharts{
     width: 95%;
-    height: 20rem;
+    height: 60%;
 }
+
 .cards{
     display: flex;
     justify-content: space-around;
     gap:1rem;
     width: 95%;
-    height: 20rem;
-    margin-top: 4rem;
+    height:25%;
+    margin-top: 8%;
 }
-.radarChart h3, .lineChart h2{
+.radarChart h3, .lineChart h2, .barCharts h3:first-child{
     display: inline-block;
     margin-bottom: 2rem;
     border-bottom: 2px solid #000;
+}
+.barCharts h3:first-child{
+    margin-bottom: 1rem;
 }
 .radarChart, .lineChart{
     width: 50%;
     height: 20rem;
     margin: 0 auto;
     margin-top: 4rem;
+}
+.radarChart, .lineChart{
+    transform: scale(1.5);
 }
 

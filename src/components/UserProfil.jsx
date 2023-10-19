@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import BannerUser from '../components/BannerUser'
 import Styles from '../styles/Profil.module.css'
 import BarCharts from '../components/BarChart/BarChart'
@@ -8,11 +8,14 @@ import RadialBarCharts from '../components/RadialBarChart/RadialBarChart'
 import Error from '../components/Error'
 import Card from '../components/Card'
 import { fetchMainData } from '../services/api'
+import { Context } from './Context'
 
 
 function UserInfos(props){
     const url = props.url
     const [datas, setDatas] = useState(null)
+    const {mode}=useContext(Context)
+      console.log('mode USERPROFIL:', mode)
       // Récupération des données pour créer les cartes
       useEffect(()=>{
         fetchMainData(url.userId,setDatas)
@@ -22,7 +25,8 @@ function UserInfos(props){
     if(datas){
     keyDataArray = Object.keys(datas.keyData)
     valueDataArray = Object.values(datas.keyData)
-    
+        
+        if(!mode){
         return (
             <>
                 <div>
@@ -54,6 +58,22 @@ function UserInfos(props){
                 </div>
             </>
             )
+        }else{
+            return(
+                <>
+                <div>
+                    <BannerUser user={url}/>
+                    <h3 className={Styles.completion}>Complétion de l’objectif journalier :</h3>
+                </div>
+                    <div className={Styles.containerDev}>
+                       
+                        <div className={Styles.radialBarChart}>
+                            <RadialBarCharts/>
+                        </div>
+                    </div>
+                </>
+            )
+        }
     }else{
         return(
             <><Error message="false"/></>
