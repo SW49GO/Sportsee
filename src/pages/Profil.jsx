@@ -24,7 +24,9 @@ function Profil(){
         return (
             <div className={Styles.profil}>
                 <div className={Styles.profilContainer}>
-                <UserProfil url={url}/>
+                    <div className={Styles.profilPage}>
+                        <UserProfil url={url}/>
+                    </div>
                 </div>
             </div>
         )

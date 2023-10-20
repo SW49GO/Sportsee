@@ -37,19 +37,19 @@ function RadarCharts(){
 
      if(datas){
         return(
-            <>
-            <ResponsiveContainer  width="100%" height="100%" className={Styles.container}>
-                <RadarChart data={newDatas.data} outerRadius={55}>
-                    {/* sans ligne vertical vers le centre */}
-                    <PolarGrid radialLines={false}/>
-                    {/*  tickFormatter={(value) => value.charAt(0).toUpperCase() + value.slice(1)} mettre la 1ere lettre en majuscule de value // dy-> recentrage des datas*/}
-                    <PolarAngleAxis dataKey="kind" axisLine={false} tickLine={false} dy={2} tick = {{fill:'#FFF', fontSize: 12, fontWeight: 500}} tickFormatter={(value) => value.charAt(0).toUpperCase() + value.slice(1)}/>
-                    {/* Affichage des graduations -><PolarRadiusAxis angle={30} domain={[0, 150]} /> */}
-                    <Radar dataKey="value" stroke="#FF0101" fill="#FF0101" fillOpacity={0.7}d/>
-                    {/* <Legend /> */}
-                </RadarChart>
-            </ResponsiveContainer>
-            </>
+            <div className={Styles.radarChart}>
+                <ResponsiveContainer  width="100%" height="100%" className={Styles.container}>
+                    <RadarChart data={newDatas.data} outerRadius={80}>
+                        {/* sans ligne vertical vers le centre */}
+                        <PolarGrid radialLines={false}/>
+                        {/*  tickFormatter={(value) => value.charAt(0).toUpperCase() + value.slice(1)} mettre la 1ere lettre en majuscule de value // dy-> recentrage des datas*/}
+                        <PolarAngleAxis dataKey="kind" axisLine={false} tickLine={false} dy={2} tick = {{fill:'#FFF', fontSize: 12, fontWeight: 500}} tickFormatter={(value) => value.charAt(0).toUpperCase() + value.slice(1)}/>
+                        {/* Affichage des graduations -><PolarRadiusAxis angle={30} domain={[0, 150]} /> */}
+                        <Radar dataKey="value" stroke="#FF0101" fill="#FF0101" fillOpacity={0.7}d/>
+                        {/* <Legend /> */}
+                    </RadarChart>
+                </ResponsiveContainer>
+            </div>
         )
     }else{
         return(

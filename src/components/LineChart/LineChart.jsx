@@ -33,25 +33,25 @@ function LineCharts(){
 
     if(datas){
      return(
-        <>
-        <h3 className={Styles.title}>Durée moyenne des sessions</h3>
-        <ResponsiveContainer width="100%" height="100%" className={Styles.container}>
-        <LineChart 
-        // width={500} 
-        // height={300} 
-        data={datas}
-        margin={{ top: 0, right: 30, left: 20, bottom: 5 }}
-        >
-        <XAxis dataKey="day" axisLine={false} tickLine={false} tick={{fill:'#FFF'}} tickFormatter={formatDay} padding={{ right: -20, left: -10 }}/>
-        <YAxis hide domain={['dataMin-10', 'dataMax+10']}  />
-        {/* Outils pour customiser l'affichage du rectangle et le curseur */}
-        <Tooltip content={<CustomToolTip />} cursor={<CustomCursor />}/>
-        {/* Le point(billes) actif s'affiche lorsqu'un utilisateur entre dans un graphique linéaire et ce graphique comporte une info-bulle */}
-        {/*stroke: couleur bordure avec opacity, strokeWidth:largeur de la bordure, r:rayon  */}
-        <Line type="natural" dataKey="sessionLength" strokeWidth={2} stroke="#FFF" activeDot={{ stroke: 'rgba(255, 255, 255, 0.25)', strokeWidth: 10, r: 4}} dot={false} />
-        </LineChart>
-        </ResponsiveContainer>
-        </>
+        <div className={Styles.lineChart}>  
+          <h3 className={Styles.title}>Durée moyenne des sessions</h3>
+          <ResponsiveContainer width="100%" height="100%" className={Styles.container}>
+            <LineChart 
+            // width={500} 
+            // height={300} 
+            data={datas}
+            margin={{ top: 0, right: 30, left: 20, bottom: 5 }}
+            >
+            <XAxis dataKey="day" axisLine={false} tickLine={false} tick={{fill:'#FFF'}} tickFormatter={formatDay} padding={{ right: -20, left: -10 }}/>
+            <YAxis hide domain={['dataMin-10', 'dataMax+10']}  />
+            {/* Outils pour customiser l'affichage du rectangle et le curseur */}
+            <Tooltip content={<CustomToolTip />} cursor={<CustomCursor />}/>
+            {/* Le point(billes) actif s'affiche lorsqu'un utilisateur entre dans un graphique linéaire et ce graphique comporte une info-bulle */}
+            {/*stroke: couleur bordure avec opacity, strokeWidth:largeur de la bordure, r:rayon  */}
+            <Line type="natural" dataKey="sessionLength" strokeWidth={2} stroke="#FFF" activeDot={{ stroke: 'rgba(255, 255, 255, 0.25)', strokeWidth: 10, r: 4}} dot={false} />
+            </LineChart>
+          </ResponsiveContainer>
+        </div>
      )
     }else{
         return(

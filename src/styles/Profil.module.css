@@ -4,17 +4,21 @@
     height: 100vh;
 }
 .profilContainer{
-    display: flex;
-    flex-direction: column;
+    /* display: flex;
+    flex-direction: column; */
     padding-left: 7.3125rem;
     padding-top: 5.6875rem;
     width: 100%;
     height: 100vh;
 }
+.profilPage{
+    width: 100%;
+    height: 95%;
+}
 .container, .containerDev{
     display: flex;
     width: 100%;
-    height: 60vh;
+    height: 80%;
 }
 .containerDev{
     justify-content: center;
@@ -30,33 +34,36 @@
     margin-left: 25%;
     border-bottom: 2px solid #000;
 }
-.containerCharts{
+.containerChartsGlobal{
     display: flex;
     flex-direction: column;
-    width: 100%;
+    justify-content: space-between;
+    width: 70%;
+    /* width: 52.1875vw; */
 }
-.barChart{
-    height: 42%;
-    width: 95%;
+.containerBarChart{
+    height: 50%;
+    width: 90%;
     margin-left: 5%;
-    margin-bottom: 2rem;
 }
-.containerCharts2{
+.container3Charts{
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     margin-left: 5%;
-    margin-top: 2rem;
-    width: 95%;
-    height: 43.5%;
+    width: 90%;
+    height: 37%;
 }
 
-.lineChart, .radarChart, .radialBarChart{
+.radialBarChart{
     position:relative;
-    width: 31%;
 }
 .containerCards{
     display: flex;
     flex-direction: column;
-    margin-left: 2%;
+    justify-content: space-between;
+    height: 100%;
+}
+.lineChart, .radarChart, .radialBarChart{
+    width: 31%;
+    height: 100%;
 }

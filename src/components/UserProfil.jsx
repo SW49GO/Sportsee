@@ -33,11 +33,11 @@ function UserInfos(props){
                     <BannerUser user={url}/>
                 </div>
                 <div className={Styles.container}>
-                    <div className={Styles.containerCharts}>
-                        <div className={Styles.barChart}>
+                    <div className={Styles.containerChartsGlobal}>
+                        <div className={Styles.containerBarChart}>
                                 <BarCharts/>
                         </div>
-                        <div className={Styles.containerCharts2}>
+                        <div className={Styles.container3Charts}>
                             <div className={Styles.lineChart}>
                                 <LineCharts/>
                             </div>
