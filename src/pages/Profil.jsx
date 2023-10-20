@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom'
 import { useContext, useEffect} from 'react'
-import {Context} from '../components/Context'
+import {Context} from '../context/Context'
 import Styles from '../styles/Profil.module.css'
 import Error from '../components/Error'
 import UserProfil from '../components/UserProfil'

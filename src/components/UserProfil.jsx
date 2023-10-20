@@ -8,7 +8,7 @@ import RadialBarCharts from '../components/RadialBarChart/RadialBarChart'
 import Error from '../components/Error'
 import Card from '../components/Card'
 import { fetchMainData } from '../services/api'
-import { Context } from './Context'
+import { Context } from '../context/Context'
 
 
 function UserInfos(props){

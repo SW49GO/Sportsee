@@ -1,5 +1,5 @@
 import { useEffect, useState, useContext } from "react"
-import { Context } from "./Context";
+import { Context } from "../context/Context";
 import { fetchMainData } from "../services/api"
 import PropTypes from 'prop-types';
 import Styles from '../styles/BannerUser.module.css'

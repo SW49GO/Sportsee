@@ -1,7 +1,7 @@
 import { LineChart, ResponsiveContainer,XAxis,YAxis,Tooltip,Line, Rectangle} from "recharts";
 import { fetchData } from '../../services/api'
 import { useContext, useState,useEffect} from 'react'
-import { Context } from '../Context'
+import { Context } from '../../context/Context'
 import Styles from '../../styles/LineChart.module.css'
 import CustomToolTip from './CustomToolTip'
 import Error from '../Error'

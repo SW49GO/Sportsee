@@ -1,7 +1,7 @@
 import { Link} from 'react-router-dom';
 import {useContext} from 'react'
 import Styles from '../styles/NavBar.module.css'; 
-import {Context} from '../components/Context'
+import {Context} from '../context/Context'
 
 
 function NavBar() {

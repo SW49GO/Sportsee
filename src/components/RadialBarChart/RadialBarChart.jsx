@@ -1,6 +1,6 @@
 import { RadialBarChart, ResponsiveContainer,RadialBar} from 'recharts'
 import { useState,useEffect, useContext } from 'react'
-import { Context } from '../Context'
+import { Context } from '../../context/Context'
 import { fetchMainData } from '../../services/api'
 import Styles from '../../styles/RadialBarChart.module.css'
 import Error from '../Error'
