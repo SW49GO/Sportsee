@@ -1,5 +1,10 @@
 .message{
-    position:absolute;
+    position:relative;
     top: 10rem;
     left:10rem;
+}
+.noExist,.network{
+    position:relative;
+    top: -5rem;
+    left: -5rem;
 }

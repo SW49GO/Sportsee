@@ -3,6 +3,7 @@ import { useState,useEffect, useContext } from 'react'
 import { Context } from '../Context'
 import { fetchMainData } from '../../services/api'
 import Styles from '../../styles/RadialBarChart.module.css'
+import Error from '../Error'
 
 function RadialBarCharts(){
      const {selectedUserId } = useContext(Context);
@@ -26,8 +27,8 @@ if (datas){
                 <RadialBarChart 
                     width={258} 
                     height={263} 
-                    innerRadius="80%" 
-                    outerRadius="80%" 
+                    innerRadius="70%" 
+                    outerRadius="70%" 
                     barSize={10}
                     data={dataArray} 
                     startAngle={210}
@@ -38,6 +39,10 @@ if (datas){
                   </RadialBarChart>
             </ResponsiveContainer>
         </>
+    )
+  }else{
+    return(
+      <><Error message="404"/></>
     )
   }
 }

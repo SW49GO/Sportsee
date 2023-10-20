@@ -4,6 +4,7 @@ import { fetchData } from "../../services/api";
 import { useContext, useState,useEffect } from "react";
 import { Context } from '../Context';
 import CustomToolTip from './CustomToolTip';
+import Error from '../Error';
 
 
 function BarCharts(){
@@ -18,6 +19,7 @@ function BarCharts(){
     },[selectedUserId])
 
     if(datas){
+    console.log('datasBARCHAR:', datas)
     return (
         <>
         <h3 className={Styles.title}>Activité quotidienne</h3>
@@ -26,13 +28,14 @@ function BarCharts(){
             data={datas}
             // taille largeur barres + écartement entre les barres
             barSize={7} barGap={8}
+            margin={{top:20, bottom:10}}
             >
                 {/* Ligne grise en fond pointillé -> 3:tiret suivi de 3 espaces*/}
                 <CartesianGrid strokeDasharray="3 3" vertical={false} />
                 {/* Fonction pour extraire le jour du mois : tickFormatter={(day) => new Date(day).getDate()*/}
                 {/* tick ->tiret */}
-                <XAxis dataKey="day" stroke="#9B9EAC" axisLine={true}  tick={{ fontSize: 14, fontWeight: 500}}  tickLine={false} tickFormatter={(day) => new Date(day).getDate()} tickMargin={10}  padding={{ right: -30, left: -30 }} />
-                <YAxis type="number" stroke="#9B9EAC" axisLine={false}  tick={{ fontSize: 14, fontWeight: 500}}  tickLine={false} tickCount='3' tickMargin={30} domain={['auto', 'dataMax + 20']}  orientation="right"/>
+                <XAxis dataKey="day" stroke="#9B9EAC" axisLine={true}  tick={{ fontSize: 14, fontWeight: 500}}  tickLine={false} tickFormatter={(day) => new Date(day).getDate()} tickMargin={10}  padding={{ right: -30, left: -30}} />
+                <YAxis type="number" stroke="#9B9EAC" axisLine={false}  tick={{ fontSize: 14, fontWeight: 500}}  tickLine={false} tickCount='3' tickMargin={20} domain={['auto', 'dataMax']}  orientation="right"/>
                 {/* Encars fond gris qui s'affiche au clic de la souris + sa légende */}
                 <Tooltip cursor={{ fill: 'rgba(196, 196, 196, 0.5)'}}  content={<CustomToolTip/>}/>
                 {/* Position légende rattaché au Bar + styles icons et name*/}
@@ -43,6 +46,10 @@ function BarCharts(){
             </BarChart>
         </ResponsiveContainer>
         </>
+    )
+}else{
+    return(
+        <><Error message="404"/></>
     )
 }
 }

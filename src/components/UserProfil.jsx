@@ -76,7 +76,7 @@ function UserInfos(props){
         }
     }else{
         return(
-            <><Error message="false"/></>
+            <><Error message="noUser"/></>
         )
     }
 }

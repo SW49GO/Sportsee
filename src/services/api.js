@@ -4,7 +4,7 @@ import { TranslateUserPerformance } from './translateUserPerformance'
 
 
 // Bascule entre Environnement Dev (dataMocked) et Prod (Api)
-const modeEnvDev = 'true'
+const modeEnvDev = 'false'
 
 export async function getAllUser(){
     return USER_MAIN_DATA

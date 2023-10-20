@@ -1,20 +1,20 @@
 .profil{
     display: flex;
     justify-content: center;
+    height: 100vh;
 }
 .profilContainer{
-
     display: flex;
     flex-direction: column;
-    min-height: 780px;
-    min-width: 1024px;
     padding-left: 7.3125rem;
     padding-top: 5.6875rem;
-    width: 90%;
+    width: 100%;
+    height: 100vh;
 }
 .container, .containerDev{
     display: flex;
     width: 100%;
+    height: 60vh;
 }
 .containerDev{
     justify-content: center;
@@ -39,7 +39,6 @@
     height: 42%;
     width: 95%;
     margin-left: 5%;
-    border:1px solid yellow;
     margin-bottom: 2rem;
 }
 .containerCharts2{
@@ -49,12 +48,12 @@
     margin-left: 5%;
     margin-top: 2rem;
     width: 95%;
-    height: 43%;
+    height: 43.5%;
 }
 
 .lineChart, .radarChart, .radialBarChart{
     position:relative;
-    width: 32%;
+    width: 31%;
 }
 .containerCards{
     display: flex;

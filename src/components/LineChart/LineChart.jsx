@@ -37,8 +37,8 @@ function LineCharts(){
         <h3 className={Styles.title}>Durée moyenne des sessions</h3>
         <ResponsiveContainer width="100%" height="100%" className={Styles.container}>
         <LineChart 
-        width={500} 
-        height={300} 
+        // width={500} 
+        // height={300} 
         data={datas}
         margin={{ top: 0, right: 30, left: 20, bottom: 5 }}
         >
@@ -55,7 +55,7 @@ function LineCharts(){
      )
     }else{
         return(
-            <Error message="false"/>
+            <Error message="404"/>
         )
     }
 }

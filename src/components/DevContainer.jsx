@@ -58,7 +58,7 @@ function DevContainer(){
         }
     }else{
         return(
-            <><Error message="true"/></>
+            <><Error message="noUser"/></>
         )
     }
 }

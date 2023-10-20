@@ -34,7 +34,7 @@ if(datas){
     )
 }else{
     return(
-    <Error message="false"/>
+    <Error message="noUser"/>
     )
 }
 }

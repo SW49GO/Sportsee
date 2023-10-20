@@ -11,13 +11,14 @@ function Profil(){
     console.log('urlPROFIL:', url)
     const { handleUserSelect, mode} = useContext(Context);
 
-    console.log('userProfil:', Object.values(url)[1])
+    console.log('userProfilOBJ:', Object.keys(url))
 
     // Send url to Context one time
     useEffect(()=>{
         handleUserSelect(url)
     // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
+
 
     if(Object.keys(url).length === 1){
         return (
