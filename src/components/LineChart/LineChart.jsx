@@ -4,31 +4,40 @@ import { useContext, useState,useEffect} from 'react'
 import { Context } from '../../context/Context'
 import Styles from '../../styles/LineChart.module.css'
 import CustomToolTip from './CustomToolTip'
+import PropTypes from 'prop-types';
 import Error from '../Error'
 
-
+/**
+ * Function to build a component
+ * @returns Component LineChart
+ */
 function LineCharts(){
-     // récupération de l'id du context
+// Retrieving the context id
      const {selectedUserId } = useContext(Context);
      const [datas, setDatas] = useState(null)
 
-     // récupération des données de l'utilisteur
+// Retrieving user data
      useEffect(()=>{
        fetchData(selectedUserId, setDatas, 'average-sessions')
      },[selectedUserId])
-    
+    // Formatting days
      const formatDay = (item) => {
-        const data = {1: 'L',2: 'M',3: 'M',4: 'J',5: 'V',6: 'S',7: 'D'};
+        const data = {1: '   L',2: 'M',3: 'M',4: 'J',5: 'V',6: 'S',7: 'D   '};
         return data[item]
       };
 
+// Cursor customization
       const CustomCursor = (props) => {
         const { points, width, height } = props;
         const { x, y } = points[0];
-        console.log(props);
         return (
           <Rectangle fill="#000000" opacity={0.1} x={x} y={y} width={width+50} height={height+50}/>
         );
+      }
+      CustomCursor.propTypes = {
+        points: PropTypes.arrayOf(PropTypes.object).isRequired,
+        width: PropTypes.number.isRequired,
+        height: PropTypes.number.isRequired
       }
 
     if(datas){
@@ -37,18 +46,15 @@ function LineCharts(){
           <h3 className={Styles.title}>Durée moyenne des sessions</h3>
           <ResponsiveContainer width="100%" height="100%" className={Styles.container}>
             <LineChart 
-            // width={500} 
-            // height={300} 
             data={datas}
-            margin={{ top: 0, right: 30, left: 20, bottom: 5 }}
-            >
-            <XAxis dataKey="day" axisLine={false} tickLine={false} tick={{fill:'#FFF'}} tickFormatter={formatDay} padding={{ right: -20, left: -10 }}/>
-            <YAxis hide domain={['dataMin-10', 'dataMax+10']}  />
+            margin={{ top: 0, bottom: 15 }}>
+            <XAxis dataKey="day" axisLine={false} tickLine={false} interval="preserveStartEnd" tick={{fill:'#FFF', fillOpacity:0.7, fontSize:12}} tickFormatter={formatDay}/>
+            <YAxis hide domain={['dataMin-20', 'dataMax+15']}/>
             {/* Outils pour customiser l'affichage du rectangle et le curseur */}
             <Tooltip content={<CustomToolTip />} cursor={<CustomCursor />}/>
             {/* Le point(billes) actif s'affiche lorsqu'un utilisateur entre dans un graphique linéaire et ce graphique comporte une info-bulle */}
             {/*stroke: couleur bordure avec opacity, strokeWidth:largeur de la bordure, r:rayon  */}
-            <Line type="natural" dataKey="sessionLength" strokeWidth={2} stroke="#FFF" activeDot={{ stroke: 'rgba(255, 255, 255, 0.25)', strokeWidth: 10, r: 4}} dot={false} />
+            <Line type="natural" dataKey="sessionLength" strokeWidth={2} stroke="#FFF" activeDot={{ stroke: 'rgba(255, 255, 255, 0.25)', strokeWidth: 10, r: 4}} dot={false}/>
             </LineChart>
           </ResponsiveContainer>
         </div>
@@ -59,5 +65,6 @@ function LineCharts(){
         )
     }
 }
+
 export default LineCharts
 
