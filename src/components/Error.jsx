@@ -8,15 +8,15 @@ function Error(props){
           {(() => {
                     switch (message) {
                     case "true":
-                        return <p>Page en attente de réalisation...</p>;
+                        return (<p>Page en attente de réalisation...</p>)
                     case "false":
-                        return <p className={Styles.noExist}>Cette page n'existe pas...</p>;
+                        return (<p className={Styles.noExist}>Cette page n'existe pas...</p>)
                     case "noUser":
-                        return <p>Cet utilisateur n'existe pas...</p>;
+                        return (<p>Cet utilisateur n'existe pas...</p>)
                     case "404":
-                        return <p className={Styles.network}>Erreur Réseau 404 !!</p>;
+                        return (<p className={Styles.network}>Erreur Réseau 404 !!</p>)
                     default:
-                        return <p>Une erreur est survenue...</p>;
+                        return (<p>Une erreur est survenue...</p>)
                     }
                 })()}
         </div>

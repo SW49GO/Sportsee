@@ -5,14 +5,12 @@ import Profil from '../pages/Profil'
 import Error from '../components/Error'
 
 
-
-
 function Router(){
     /**
      * Function to select the user
      */
     const RedirectConnexion=()=> {
-        return <Navigate to='/user/connexion'/>;
+        return <Navigate to='/user/connexion'/>
       }
 
     return ( <BrowserRouter>

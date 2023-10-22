@@ -1,9 +1,9 @@
 import { RadarChart,Radar, ResponsiveContainer,PolarAngleAxis,PolarGrid, PolarRadiusAxis} from "recharts";
 import { useState, useContext,useEffect } from "react";
 import { Context } from '../../context/Context';
-import { fetchData } from "../../services/api";
 import Styles from '../../styles/RadarChart.module.css'
 import Error from "../Error";
+import { useFetchDatas } from "../../hooks/useFetchDatas";
 
 /**
  * Function to build component
@@ -11,13 +11,9 @@ import Error from "../Error";
  */
 function RadarCharts(){
 // Retrieving the Context id
-     const {selectedUserId } = useContext(Context);
-     const [datas, setDatas] = useState(null)
-   
-// Retrieving user data
-     useEffect(()=>{
-       fetchData(selectedUserId, setDatas, "performance")
-     },[selectedUserId])
+     const {selectedUserId, modeProd } = useContext(Context);
+    // Vérification du modeProd pour l'appel et récupération des données par un hook personnalisé
+     const datas = useFetchDatas(selectedUserId, modeProd,'performance')
      // Creating an object to reformat data from (kind and data)
     let newDatas={}
     if(datas!==null){

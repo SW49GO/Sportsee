@@ -4,7 +4,7 @@ import { TranslateUserPerformance } from './translateUserPerformance'
 
 
 // Bascule entre Environnement Dev (dataMocked) et Prod (Api)
-const modeEnvDev = 'false'
+const modeDataMocked = 'false'
 
 export async function getAllUser(){
     return USER_MAIN_DATA
@@ -21,8 +21,9 @@ export async function fetchMainData(userId, setDatas) {
     if(userId && userId.userId){
     userId=userId.userId
     }
+   
 
-    if(process.env.REACT_APP_API_DEV === modeEnvDev){
+    if(process.env.REACT_APP_API_DEV === modeDataMocked){
 
         const userMainData = USER_MAIN_DATA.find((user)=>{
             if(userId && user.id === parseInt(userId)){
@@ -63,7 +64,7 @@ export async function fetchMainData(userId, setDatas) {
         userId=userId.userId
         }
         console.log('userIdFETCHDATA:', userId)
-    if(process.env.REACT_APP_API_DEV === modeEnvDev){
+    if(process.env.REACT_APP_API_DEV === modeDataMocked){
         if(endpoint === "activity" && userId){
             const userActivity = USER_ACTIVITY.filter((user)=>{
                     if(user.userId === parseInt(userId)){

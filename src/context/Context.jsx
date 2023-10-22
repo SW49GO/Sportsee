@@ -10,8 +10,8 @@ function MonProvider({ children }) {
   console.log('selectedUserIdCONTEXT:', selectedUserId)
 
   // Forcer le mode d'environnement Prod ou Dev pour l'utilisateur
-  const mode =process.env.REACT_APP_DEVELOPPER==="false"
-  console.log('mode:', mode)
+  const modeProd =process.env.REACT_APP_PRODUCTION==="true"
+  console.log('mode:', modeProd)
 
   // fonction pour mettre à jour l'id de l'utilisateur
   const handleUserSelect = (userId) => {
@@ -19,7 +19,7 @@ function MonProvider({ children }) {
   };
 
   return (
-    <Context.Provider value={{ selectedUserId, handleUserSelect, mode }}>
+    <Context.Provider value={{ selectedUserId, handleUserSelect, modeProd }}>
       {children}
     </Context.Provider>
   );

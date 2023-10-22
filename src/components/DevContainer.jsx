@@ -20,6 +20,7 @@ function DevContainer(){
     let keyDataArray, valueDataArray
 
     if(datas){
+    console.log('datasDDDDDDDDDDDDDDDDDDDDDDDDDDDDD:', datas)
     keyDataArray = Object.keys(datas.keyData)
     valueDataArray = Object.values(datas.keyData)
         if(url['*']==="activity"){

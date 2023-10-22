@@ -1,25 +1,20 @@
 import {ResponsiveContainer, BarChart, CartesianGrid, XAxis, YAxis, Tooltip,Legend,Bar} from 'recharts'
 import Styles from '../../styles/BarChart.module.css'
-import { fetchData } from "../../services/api";
-import { useContext, useState,useEffect } from "react";
+import { useContext } from "react";
 import { Context } from '../../context/Context';
 import CustomToolTip from './CustomToolTip';
 import Error from '../Error';
+import { useFetchDatas } from '../../hooks/useFetchDatas';
 
 
 function BarCharts(){
 
- // récupération de l'id du context
-    const {selectedUserId } = useContext(Context);
-    const [datas, setDatas] = useState(null)
-  
-    // récupération des données de l'utilisteur
-    useEffect(()=>{
-      fetchData(selectedUserId, setDatas, "activity")
-    },[selectedUserId])
+    const {selectedUserId, modeProd } = useContext(Context);
+
+    // Vérification du modeProd pour l'appel et récupération des données par un hook personnalisé
+    const datas = useFetchDatas(selectedUserId, modeProd,'activity')
 
     if(datas){
-    console.log('datasBARCHAR:', datas)
     return (
         <div className={Styles.barChart}>
         <h3 className={Styles.title}>Activité quotidienne</h3>

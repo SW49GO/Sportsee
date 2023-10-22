@@ -1,11 +1,11 @@
 import { LineChart, ResponsiveContainer,XAxis,YAxis,Tooltip,Line, Rectangle} from "recharts";
-import { fetchData } from '../../services/api'
-import { useContext, useState,useEffect} from 'react'
+import { useContext} from 'react'
 import { Context } from '../../context/Context'
 import Styles from '../../styles/LineChart.module.css'
 import CustomToolTip from './CustomToolTip'
 import PropTypes from 'prop-types';
 import Error from '../Error'
+import { useFetchDatas } from "../../hooks/useFetchDatas";
 
 /**
  * Function to build a component
@@ -13,14 +13,11 @@ import Error from '../Error'
  */
 function LineCharts(){
 // Retrieving the context id
-     const {selectedUserId } = useContext(Context);
-     const [datas, setDatas] = useState(null)
+     const {selectedUserId,modeProd } = useContext(Context);
 
-// Retrieving user data
-     useEffect(()=>{
-       fetchData(selectedUserId, setDatas, 'average-sessions')
-     },[selectedUserId])
-    // Formatting days
+// Vérification du modeProd pour l'appel et récupération des données par un hook personnalisé
+const datas = useFetchDatas(selectedUserId, modeProd,'average-sessions')
+
      const formatDay = (item) => {
         const data = {1: '   L',2: 'M',3: 'M',4: 'J',5: 'V',6: 'S',7: 'D   '};
         return data[item]
@@ -35,9 +32,9 @@ function LineCharts(){
         );
       }
       CustomCursor.propTypes = {
-        points: PropTypes.arrayOf(PropTypes.object).isRequired,
-        width: PropTypes.number.isRequired,
-        height: PropTypes.number.isRequired
+        points: PropTypes.arrayOf(PropTypes.object),
+        width: PropTypes.number,
+        height: PropTypes.number
       }
 
     if(datas){

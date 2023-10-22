@@ -1,29 +1,19 @@
-import { useEffect, useState, useContext } from "react"
+import { useContext } from "react"
 import { Context } from "../context/Context";
-import { fetchMainData } from "../services/api"
-import PropTypes from 'prop-types';
 import Styles from '../styles/BannerUser.module.css'
 import Error from "./Error";
+import { useFetchMainData } from "../hooks/useFetchMainData";
 
-function BannerUser(props){
-    const users = props.user
-    // Récupération du mode Dev ou Prod
-    const {mode} = useContext(Context);
+function BannerUser(){
 
-    // State pour stocker les données
-    const [datas, setDatas] = useState(null)
-    // console.log('datasBANNER:', datas)
-
-    // récupération des données selon l'id de l'utilisateur
-    useEffect(()=>{
-        fetchMainData(users.userId,setDatas)
-    },[users.userId])
-
+    const {selectedUserId, modeProd} = useContext(Context);
+    // Vérification du modeProd pour l'appel et récupération des données par un hook personnalisé
+    const datas = useFetchMainData(selectedUserId, modeProd)
 
 if(datas){
     return(
         <div className={Styles.banner}>
-            {!mode ? <> 
+            {modeProd ? <> 
                     <p>Bonjour <span>{datas.userInfos.firstName.charAt(0).toUpperCase() + datas.userInfos.firstName.slice(1)}</span></p>
                     <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
                     </>
@@ -38,10 +28,5 @@ if(datas){
     )
 }
 }
-
-BannerUser.propTypes = {
-    user: PropTypes.object.isRequired
-}
-
 
 export default BannerUser

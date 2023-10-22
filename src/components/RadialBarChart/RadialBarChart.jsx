@@ -1,22 +1,18 @@
 import { RadialBarChart, ResponsiveContainer,RadialBar} from 'recharts'
-import { useState,useEffect, useContext } from 'react'
+import { useContext } from 'react'
 import { Context } from '../../context/Context'
-import { fetchMainData } from '../../services/api'
 import Styles from '../../styles/RadialBarChart.module.css'
 import Error from '../Error'
+import { useFetchMainData } from '../../hooks/useFetchMainData'
 
 /**
  * Function to build component
  * @returns components RadialBarChart
  */
 function RadialBarCharts(){
-     const {selectedUserId } = useContext(Context);
-     const [datas, setDatas] = useState(null)
-
-// Retrieving user data
-     useEffect(()=>{
-       fetchMainData(selectedUserId, setDatas)
-     },[selectedUserId])
+     const {selectedUserId, modeProd}=useContext(Context)
+     // Vérification du modeProd pour l'appel et récupération des données par un hook personnalisé
+     const datas = useFetchMainData(selectedUserId, modeProd)
 
 if (datas){
  const dataArray = [{ name: datas.score * 100 + '%', value: datas.score * 100, fill:'#ff0000'}]
