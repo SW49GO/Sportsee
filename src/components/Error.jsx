@@ -1,8 +1,14 @@
+import { useParams } from 'react-router-dom';
 import Styles from '../styles/Error.module.css'
 import PropTypes from 'prop-types';
 function Error(props){
-    const message = props.message
-    // console.log('message:', message)
+    const url = useParams()
+    // Authorized pages for users
+    const authorizedPage = ['home','profil','settings','commmunity','yoga','swimming','bike','alter']
+    let message = props.message
+    if (url['*'] && !authorizedPage.includes(url['*'])) {
+        message = "false";
+    }
     return (
         <div className={Styles.message}>
           {(() => {

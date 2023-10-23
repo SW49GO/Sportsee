@@ -1,22 +1,26 @@
-import { useParams } from 'react-router-dom'
-import { useContext} from 'react'
-import {Context} from '../context/Context'
-import Styles from '../styles/Profil.module.css'
-import Error from '../components/Error'
-import UserProfil from '../components/UserProfil'
-import DevContainer from '../components/DevContainer'
 import { useFetchMainData } from '../hooks/useFetchMainData'
+import DevContainer from '../components/DevContainer'
+import UserProfil from '../components/UserProfil'
+import Styles from '../styles/Profil.module.css'
+import { useParams } from 'react-router-dom'
+import {Context} from '../context/Context'
+import Error from '../components/Error'
+import { useContext} from 'react'
 
+/**
+ * Function to display all components
+ * @returns {JSX.Element}
+ */
 function Profil(){
     const url = useParams()
-    console.log('PROFILPROFILurl:', url)
     const {selectedUserId, modeProd}=useContext(Context)
 
-    // Vérification du modeProd pour l'appel et récupération des données par un hook personnalisé
+    // Checking the modeProd for the call and retrieving data using a custom hook
     const datas = useFetchMainData(selectedUserId, modeProd)
 
     if(datas && datas!=="err"){
-        if(Object.keys(url).length===1){
+        if(Object.keys(url).length===1  && Object.keys(url)[0] === "userId"){
+            //Access to the UserProfil component for any user (user or developer)
             return (
                 <div className={Styles.profil}>
                     <div className={Styles.profilContainer}>
@@ -27,21 +31,25 @@ function Profil(){
                 </div>
             )
         }else if(!modeProd){
+            // Access others components for user developer for all others URL
             return (
                 <div>
                     <DevContainer/>
                 </div>
             )
         }else{
+            // Message for menu pages other than Profil
             return (
                 <><Error message="true"/></>
             )
         }
     }else if(datas===''){
+        // Message for datas not found 
         return (
             <><Error message="noUser"/></>
         )
     }else {
+        // Message when Network Error 
         return (
             <><Error message="err"/></>
         )

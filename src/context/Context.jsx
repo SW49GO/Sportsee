@@ -1,20 +1,26 @@
 import React, { createContext, useState} from 'react';
 
-
+// Creating a Context
 const Context = createContext();
 
+
+/**
+ * Function to provide context to manage the selected user's Id
+ * @param {object} props
+ * @param {ReactNode} props.children - The child components to render in the context
+ * @returns {JSX.Element} The Context component that wraps the children.
+ */
 function MonProvider({ children }) {
 
-//////////////////////////////////////////////////////////////////
-// Forcer le mode d'environnement Prod ou Dev pour l'utilisateur//
+//////////////////////////////////////////////////////////////
+// Force User or Developer environment mode                 //
     const modeProd =process.env.REACT_APP_USER_PROD==="true"
-//////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
 
-// State pour stocker l'id de l'utilisateur
+// State to store user Id
   const [selectedUserId, setSelectedUserId] = useState(null);
-  console.log('selectedUserIdCONTEXT:', selectedUserId)
 
-  // Fonction pour mettre à jour l'id de l'utilisateur
+  // Function to update user Id
   const handleUserSelect = (userId) => {
     setSelectedUserId(userId);
   };

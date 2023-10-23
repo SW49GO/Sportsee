@@ -3,6 +3,16 @@ import { useParams } from 'react-router-dom';
 import { fetchData } from '../services/api';
 import {Context} from '../context/Context'
 
+
+/**
+ * Function to Call datas from api.js->fetchData
+ * Check if the mode is Prod or not
+ * Check params userId
+ * @param {object} userId ex:{'userId':18}
+ * @param {boolean} modeProd 
+ * @param {string} endpoint ex:'activity'
+ * @returns 
+ */
 export function useFetchDatas(userId, modeProd, endpoint) {
   const url =useParams()
   const [datas, setDatas] = useState(null)
@@ -10,7 +20,8 @@ export function useFetchDatas(userId, modeProd, endpoint) {
 
   useEffect(() => {
     if (modeProd) {
-      // Gestion du changement d'ID dans l'url par un utilisateur pour ne pas visualiser la page d'un autre utilisateur
+      // Managing the change of ID in the URL by a user to not view another user's page
+      // And regenerate the context selectedUserId, l'id stored in the localStorage
       if(userId===null){
         const user = { 'userId': parseInt(localStorage.getItem('defaultUser')) }
         handleUserSelect(user)

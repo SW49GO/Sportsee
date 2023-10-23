@@ -1,9 +1,9 @@
 /**
  * Function to change "todayScore" to "score"
  * and translate the words in keyData in french version
- * @param {object} user the datas retrieve from call api or dataMocked
+ * @param {object} data the datas retrieve from call api or dataMocked
  */
-export function ChangeUserMainData(user){
+export function ChangeUserMainData(data){
 
     const keyDataMapping = {
         'calorieCount': 'calories',
@@ -11,19 +11,19 @@ export function ChangeUserMainData(user){
         'carbohydrateCount':'glucides',
         'lipidCount': 'lipides'
     }
-
-    if(user.todayScore){
-        user["score"] = user.todayScore
-          delete user["todayScore"];
+    // Replacing todayScore key with score
+    if(data.todayScore){
+        data["score"] = data.todayScore
+          delete data["todayScore"];
         }
 
     const updatedKeyData = {};
-    for (const key in user.keyData) {
+    for (const key in data.keyData) {
         if (key in keyDataMapping) {
-        updatedKeyData[keyDataMapping[key]] = user.keyData[key];
+        updatedKeyData[keyDataMapping[key]] = data.keyData[key];
         } else {
-        updatedKeyData[key] = user.keyData[key];
+        updatedKeyData[key] = data.keyData[key];
         }
     }
-    user.keyData = updatedKeyData;
+    data.keyData = updatedKeyData;
 }

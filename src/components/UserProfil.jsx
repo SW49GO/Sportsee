@@ -1,18 +1,24 @@
-import { useContext} from 'react'
+import RadialBarCharts from '../components/RadialBarChart/RadialBarChart'
+import RadarCharts from '../components/RadarChart/RadarChart'
+import { useFetchMainData } from '../hooks/useFetchMainData'
+import LineCharts from '../components/LineChart/LineChart'
+import BarCharts from '../components/BarChart/BarChart'
 import BannerUser from '../components/BannerUser'
 import Styles from '../styles/Profil.module.css'
-import BarCharts from '../components/BarChart/BarChart'
-import LineCharts from '../components/LineChart/LineChart'
-import RadarCharts from '../components/RadarChart/RadarChart'
-import RadialBarCharts from '../components/RadialBarChart/RadialBarChart'
+import { Context } from '../context/Context'
 import Error from '../components/Error'
 import Card from '../components/Card'
-import { Context } from '../context/Context'
-import { useFetchMainData } from '../hooks/useFetchMainData'
+import { useContext} from 'react'
 
+
+
+/**
+ * 
+ * @returns {JSX.Element}
+ */
 function UserInfos(){
     const {selectedUserId, modeProd}=useContext(Context)
-    // Vérification du modeProd pour l'appel et récupération des données par un hook personnalisé
+    // Checking the modeProd for the call and retrieving data using a custom Hook
     const datas = useFetchMainData(selectedUserId, modeProd)
 
     let keyDataArray, valueDataArray
@@ -55,10 +61,10 @@ function UserInfos(){
         }else{
             return(
                 <>
-                <div>
-                    <BannerUser/>
-                    <h3 className={Styles.completion}>Complétion de l’objectif journalier :</h3>
-                </div>
+                    <div>
+                        <BannerUser/>
+                        <h3 className={Styles.completion}>Complétion de l’objectif journalier :</h3>
+                    </div>
                     <div className={Styles.containerDev}>
                         <div className={Styles.radialBarChart}>
                             <RadialBarCharts/>

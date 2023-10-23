@@ -1,35 +1,37 @@
 import { LineChart, ResponsiveContainer,XAxis,YAxis,Tooltip,Line, Rectangle} from "recharts";
-import { useContext} from 'react'
-import { Context } from '../../context/Context'
+import { useFetchDatas } from "../../hooks/useFetchDatas";
 import Styles from '../../styles/LineChart.module.css'
+import { Context } from '../../context/Context'
 import CustomToolTip from './CustomToolTip'
 import PropTypes from 'prop-types';
+import { useContext} from 'react'
 import Error from '../Error'
-import { useFetchDatas } from "../../hooks/useFetchDatas";
+
 
 /**
  * Function to build a component
  * @returns Component LineChart
  */
 function LineCharts(){
-// Retrieving the context id
-  const {selectedUserId,modeProd } = useContext(Context);
+// Retrieving the context id user
+  const {selectedUserId, modeProd } = useContext(Context);
 
-// Vérification du modeProd pour l'appel et récupération des données par un hook personnalisé
+// Checking the Prod mode for the call and retrieving data using a custom hook
   const datas = useFetchDatas(selectedUserId, modeProd,'average-sessions')
 
-  const formatDay = (item) => {
-    const data = {1: '   L',2: 'M',3: 'M',4: 'J',5: 'V',6: 'S',7: 'D   '};
-    return data[item]
-  };
+  // Function to change each day value by a letter -> used by tickFormatter
+   const formatDay = (value) => {
+    const data = {1: '   L',2: 'M',3: 'M',4: 'J',5: 'V',6: 'S',7: 'D   '}
+    return data[value]
+  }
 
 // Cursor customization
   const CustomCursor = (props) => {
-    const { points, width, height } = props;
-    const { x, y } = points[0];
+    const { points, width, height } = props
+    const { x, y } = points[0]
       return (
         <Rectangle fill="#000000" opacity={0.1} x={x} y={y} width={width+50} height={height+50}/>
-      );
+      )
   }
   CustomCursor.propTypes = {
     points: PropTypes.arrayOf(PropTypes.object),
@@ -49,6 +51,7 @@ function LineCharts(){
             <YAxis hide domain={['dataMin-20', 'dataMax+15']}/>
             {/* Outils pour customiser l'affichage du rectangle et le curseur */}
             <Tooltip content={<CustomToolTip />} cursor={<CustomCursor />}/>
+            {/* Définition d'un dégradé pour la ligne */}
             <defs>
               <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
                 <stop offset="0%" stopColor="#fff" stopOpacity={0.4} />
@@ -57,8 +60,7 @@ function LineCharts(){
                 <stop offset="100%" stopColor="#fff" stopOpacity={1} />
               </linearGradient>
             </defs>
-            {/* Le point(billes) actif s'affiche lorsqu'un utilisateur entre dans un graphique linéaire et ce graphique comporte une info-bulle */}
-            {/*stroke: couleur bordure avec opacity, strokeWidth:largeur de la bordure, r:rayon  */}
+            {/*Paramètre de la ligne et du point actif*/}
           <Line type="natural" dataKey="sessionLength" strokeWidth={2} stroke="url(#grad)" activeDot={{ stroke: 'rgba(255, 255, 255, 0.25)', strokeWidth: 10, r: 4}} dot={false}/>
           </LineChart>
         </ResponsiveContainer>
