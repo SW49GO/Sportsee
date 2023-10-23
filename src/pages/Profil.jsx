@@ -9,9 +9,8 @@ import { useFetchMainData } from '../hooks/useFetchMainData'
 
 function Profil(){
     const url = useParams()
+    console.log('PROFILPROFILurl:', url)
     const {selectedUserId, modeProd}=useContext(Context)
-
-    console.log('userProfilOBJVALUE:', Object.keys(url))
 
     // Vérification du modeProd pour l'appel et récupération des données par un hook personnalisé
     const datas = useFetchMainData(selectedUserId, modeProd)

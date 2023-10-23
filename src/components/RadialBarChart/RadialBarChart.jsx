@@ -21,7 +21,7 @@ if (datas && datas!=="err"){
       <div className={Styles.radialBarChart}>
         <h3 className={Styles.title}>Score</h3>
         <svg width="60%" height="60%" className={Styles.svg}>
-            <circle cx="50%" cy="50%" r="40%" fill="#fff"/>
+            <circle cx="50%" cy="50%" r="40.5%" fill="#fff"/>
         </svg>
         <div className={Styles.legend}><p>{dataArray[0].name}</p><p>de votre objectif</p></div>
             <ResponsiveContainer width="100%" height="100%" className={Styles.container}>

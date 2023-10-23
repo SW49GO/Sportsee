@@ -19,7 +19,7 @@
 .radarChart h3, .lineChart h2, .barCharts h3:first-child{
     display: inline-block;
     margin-bottom: 2rem;
-    border-bottom: 2px solid #000;
+    border-bottom: 2px solid #000000;
 }
 .barCharts h3:first-child{
     margin-bottom: 1rem;

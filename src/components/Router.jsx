@@ -6,6 +6,7 @@ import Error from '../components/Error'
 
 
 function Router(){
+
     /**
      * Function to select the user
      */
@@ -19,8 +20,8 @@ function Router(){
                     <Route exact path='/' element={<RedirectConnexion/>} />
                     <Route path='/user/connexion' element={<Connexion/>} />
                     <Route path='/user/:userId' element={<Profil/>} />
-                    <Route path='/user/:userId/*' element={<Profil />} />
-                    <Route path='*' element={<Error message="false"/>} />
+                    <Route path='/user/:userId/*' element={<Profil />}/>
+                    <Route path='*' element={<Error message="false"/>}/>
                 </Routes>
             </BrowserRouter>
             )

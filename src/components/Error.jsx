@@ -8,15 +8,15 @@ function Error(props){
           {(() => {
                     switch (message) {
                     case "true":
-                        return (<p>Page en attente de réalisation...</p>)
+                        return (<p className={Styles.other}>Page en attente de réalisation...</p>)
                     case "false":
                         return (<p className={Styles.noExist}>Cette page n'existe pas...</p>)
                     case "noUser":
-                        return (<p>Cet utilisateur n'existe pas...</p>)
+                        return (<p className={Styles.other}>Cet utilisateur n'existe pas...</p>)
                     case "err":
                         return (<p className={Styles.network}>Erreur Serveur inattendue...</p>)
                     default:
-                        return (<p>Une erreur est survenue...</p>)
+                        return (<p className={Styles.other}>Une erreur est survenue...</p>)
                     }
                 })()}
         </div>

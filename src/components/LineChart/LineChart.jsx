@@ -49,9 +49,17 @@ function LineCharts(){
             <YAxis hide domain={['dataMin-20', 'dataMax+15']}/>
             {/* Outils pour customiser l'affichage du rectangle et le curseur */}
             <Tooltip content={<CustomToolTip />} cursor={<CustomCursor />}/>
+            <defs>
+              <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#fff" stopOpacity={0.4} />
+                <stop offset="30%" stopColor="#fff" stopOpacity={0.6} />
+                <stop offset="60%" stopColor="#fff" stopOpacity={0.8} />
+                <stop offset="100%" stopColor="#fff" stopOpacity={1} />
+              </linearGradient>
+            </defs>
             {/* Le point(billes) actif s'affiche lorsqu'un utilisateur entre dans un graphique linéaire et ce graphique comporte une info-bulle */}
             {/*stroke: couleur bordure avec opacity, strokeWidth:largeur de la bordure, r:rayon  */}
-          <Line type="natural" dataKey="sessionLength" strokeWidth={2} stroke="#FFF" activeDot={{ stroke: 'rgba(255, 255, 255, 0.25)', strokeWidth: 10, r: 4}} dot={false}/>
+          <Line type="natural" dataKey="sessionLength" strokeWidth={2} stroke="url(#grad)" activeDot={{ stroke: 'rgba(255, 255, 255, 0.25)', strokeWidth: 10, r: 4}} dot={false}/>
           </LineChart>
         </ResponsiveContainer>
       </div>
