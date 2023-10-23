@@ -16,11 +16,10 @@ function UserInfos(){
     const datas = useFetchMainData(selectedUserId, modeProd)
 
     let keyDataArray, valueDataArray
-
-    if(datas){
+    if(datas && datas!=="err"){
     keyDataArray = Object.keys(datas.keyData)
     valueDataArray = Object.values(datas.keyData)
-        
+
         if(modeProd){
             return (
                 <>
@@ -68,10 +67,14 @@ function UserInfos(){
                 </>
             )
         }
-    }else{
+    }else if(datas===''){
         return(
             <><Error message="noUser"/></>
         )
-    }
+    } else {
+        return (
+            <><Error message="err"/></>
+        )
+    } 
 }
 export default UserInfos

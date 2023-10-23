@@ -11,12 +11,12 @@ import { useFetchDatas } from "../../hooks/useFetchDatas";
  */
 function RadarCharts(){
 // Retrieving the Context id
-     const {selectedUserId, modeProd } = useContext(Context);
+    const {selectedUserId, modeProd } = useContext(Context);
     // Vérification du modeProd pour l'appel et récupération des données par un hook personnalisé
-     const datas = useFetchDatas(selectedUserId, modeProd,'performance')
+    const datas = useFetchDatas(selectedUserId, modeProd,'performance')
      // Creating an object to reformat data from (kind and data)
     let newDatas={}
-    if(datas!==null){
+    if(datas!==null && datas!=="err"){
         const kindDatas = datas.kind
         newDatas = {
             data: datas.data.map((dataItem) => {
@@ -56,7 +56,7 @@ function RadarCharts(){
        };
      }, []);
 
-     if(datas){
+     if(datas && datas!=="err"){
         return(
             <div className={Styles.radarChart}>
                 <ResponsiveContainer  width="100%" height="100%" className={Styles.container}>
@@ -72,10 +72,14 @@ function RadarCharts(){
                 </ResponsiveContainer>
             </div>
         )
-    }else{
+    }else if(datas===''){
         return(
-            <Error message="404"/>
+            <><Error message="404"/></>
         )
-    }
+    }else {
+        return (
+            <><Error message="err"/></>
+        )
+    } 
 }
 export default RadarCharts

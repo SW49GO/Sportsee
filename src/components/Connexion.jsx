@@ -1,3 +1,4 @@
+import {Navigate} from 'react-router-dom'
 import { getAllUser} from "../services/api"
 import { Link } from "react-router-dom"
 import { useContext} from 'react'
@@ -6,7 +7,8 @@ import Styles from "../styles/Connexion.module.css"
 const users = await getAllUser()
 
 function Connexion(){
-  const { handleUserSelect} = useContext(Context);
+  const { handleUserSelect, modeProd} = useContext(Context);
+  if(modeProd){
     return(
             <div className={Styles.container}>
               <h2>Liste des utilisateurs :</h2>
@@ -21,5 +23,10 @@ function Connexion(){
               </ul>
             </div>
           )
+    }else{
+      return(
+        <Navigate to='/user/'/>
+      )
+    }
 }
 export default Connexion

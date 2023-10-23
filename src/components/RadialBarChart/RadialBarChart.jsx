@@ -14,7 +14,7 @@ function RadialBarCharts(){
      // Vérification du modeProd pour l'appel et récupération des données par un hook personnalisé
      const datas = useFetchMainData(selectedUserId, modeProd)
 
-if (datas){
+if (datas && datas!=="err"){
  const dataArray = [{ name: datas.score * 100 + '%', value: datas.score * 100, fill:'#ff0000'}]
 
     return(
@@ -38,11 +38,15 @@ if (datas){
             </ResponsiveContainer>
       </div>
     )
-  }else{
+  }else if(datas===''){
     return(
-      <><Error message="404"/></>
+        <><Error message="404"/></>
     )
-  }
+  }else {
+    return (
+        <><Error message="err"/></>
+    )
+  } 
 }
 
 export default RadialBarCharts

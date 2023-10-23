@@ -19,10 +19,9 @@ function DevContainer(){
     },[url])
     let keyDataArray, valueDataArray
 
-    if(datas){
-    console.log('datasDDDDDDDDDDDDDDDDDDDDDDDDDDDDD:', datas)
-    keyDataArray = Object.keys(datas.keyData)
-    valueDataArray = Object.values(datas.keyData)
+    if(datas && datas!=="err"){
+        keyDataArray = Object.keys(datas.keyData)
+        valueDataArray = Object.values(datas.keyData)
         if(url['*']==="activity"){
         return (
             <div className={Styles.container}>
@@ -57,10 +56,14 @@ function DevContainer(){
                 </div>
             )
         }
-    }else{
+    }else if(datas===''){
         return(
             <><Error message="noUser"/></>
         )
-    }
+    }else {
+        return (
+            <><Error message="err"/></>
+        )
+    } 
 }
 export default DevContainer

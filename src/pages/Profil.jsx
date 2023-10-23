@@ -16,13 +16,12 @@ function Profil(){
     // Vérification du modeProd pour l'appel et récupération des données par un hook personnalisé
     const datas = useFetchMainData(selectedUserId, modeProd)
 
-    if(datas){
+    if(datas && datas!=="err"){
         if(Object.keys(url).length===1){
             return (
                 <div className={Styles.profil}>
                     <div className={Styles.profilContainer}>
                         <div className={Styles.profilPage}>
-                            {/* <UserProfil url={selectedUserId}/> */}
                             <UserProfil/>
                         </div>
                     </div>
@@ -39,10 +38,14 @@ function Profil(){
                 <><Error message="true"/></>
             )
         }
-    }else{
-            return (
-                <><Error message="noUser"/></>
-            )
+    }else if(datas===''){
+        return (
+            <><Error message="noUser"/></>
+        )
+    }else {
+        return (
+            <><Error message="err"/></>
+        )
     }
 }
 export default Profil

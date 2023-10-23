@@ -14,7 +14,7 @@ function BarCharts(){
     // Vérification du modeProd pour l'appel et récupération des données par un hook personnalisé
     const datas = useFetchDatas(selectedUserId, modeProd,'activity')
 
-    if(datas){
+    if(datas && datas!=="err"){
     return (
         <div className={Styles.barChart}>
         <h3 className={Styles.title}>Activité quotidienne</h3>
@@ -43,10 +43,14 @@ function BarCharts(){
         </ResponsiveContainer>
         </div>
     )
-}else{
-    return(
-        <><Error message="404"/></>
-    )
-}
+    }else if(datas===''){
+        return(
+            <><Error message="404"/></>
+        )
+    }else {
+        return (
+            <><Error message="err"/></>
+        )
+    } 
 }
 export default BarCharts

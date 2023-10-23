@@ -6,6 +6,10 @@ import { TranslateUserPerformance } from './translateUserPerformance'
 // Bascule entre Environnement Dev (dataMocked) et Prod (Api)
 const modeDataMocked = 'false'
 
+/**
+ * Function to retrieve all users for simulation connexion
+ * @returns object 
+ */
 export async function getAllUser(){
     return USER_MAIN_DATA
 }
@@ -39,15 +43,17 @@ export async function fetchMainData(userId, setDatas) {
     }else{
         try{
             const response = await fetch (`http://localhost:3000/user/${userId}`)
-            const results = await response.json()
-            if(results){
+            // Plage en 200-299 réponse ok serveur
+            if(response.ok) {
+                const results = await response.json();
                 ChangeUserMainData(results.data)
+                setDatas(results.data)
+            }else if(response.status===404){
+                setDatas('')
             }
-            setDatas(results.data)
-            console.log('resultsFetchUSER:', results)
         }catch(err){
             console.log(err)
-            setDatas('')
+                setDatas('err')
           }
         }
     }
@@ -100,27 +106,30 @@ export async function fetchMainData(userId, setDatas) {
         try{
             console.log("FETCHUSER_ID",userId)
             const response = await fetch (`http://localhost:3000/user/${userId}/${endpoint}`)
-            const results = await response.json()
-      
-            if(endpoint === "activity"){
-              console.log('FETCHAVTIVITY',results.data)
-              setDatas(results.data.sessions)
+            if(response.ok) {
+                const results = await response.json()
+
+                if(endpoint === "activity"){
+                    console.log('FETCHAVTIVITY',results.data)
+                    setDatas(results.data.sessions)
+                    }
+                if(endpoint === "average-sessions"){
+                    console.log('FETCHAVERAGE',results.data)
+                    setDatas(results.data.sessions)
+                    }
+                if(endpoint === "performance"){
+                    if(results.data!==null){
+                        TranslateUserPerformance(results.data)
+                    }
+                    console.log('FETCHPERFORMANCE',results.data)
+                    setDatas(results.data)
                 }
-            if(endpoint === "average-sessions"){
-                console.log('FETCHAVERAGE',results.data)
-                setDatas(results.data.sessions)
-                }
-            if(endpoint === "performance"){
-                if(results.data!==null){
-                    TranslateUserPerformance(results.data)
-                }
-                console.log('FETCHPERFORMANCE',results.data)
-                setDatas(results.data)
-                }
+            }else if(response.status===404){
+                    setDatas('')
             }
-            catch(err){
+        } catch(err){
               console.log(err)
-              setDatas('')
+              setDatas('err')
             }
     }
 }

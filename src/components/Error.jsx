@@ -13,8 +13,8 @@ function Error(props){
                         return (<p className={Styles.noExist}>Cette page n'existe pas...</p>)
                     case "noUser":
                         return (<p>Cet utilisateur n'existe pas...</p>)
-                    case "404":
-                        return (<p className={Styles.network}>Erreur Réseau 404 !!</p>)
+                    case "err":
+                        return (<p className={Styles.network}>Erreur Serveur inattendue...</p>)
                     default:
                         return (<p>Une erreur est survenue...</p>)
                     }
