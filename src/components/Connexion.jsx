@@ -1,13 +1,21 @@
+import Styles from '../styles/Connexion.module.css'
+import { getAllUser} from '../services/api'
+import {Context} from '../context/Context'
 import {Navigate} from 'react-router-dom'
-import { getAllUser} from "../services/api"
 import { Link } from "react-router-dom"
 import { useContext} from 'react'
-import {Context} from '../context/Context'
-import Styles from "../styles/Connexion.module.css"
+
+// Retrieve all users from dataMocked
 const users = await getAllUser()
 
+/**
+ * Function to simulate a user login by choosing a user from a list
+ * @returns {JSX.Element}
+ */
 function Connexion(){
+  // Retrieve handleUserSelect to initialize selectedUserId when selected user
   const { handleUserSelect, modeProd} = useContext(Context);
+
   if(modeProd){
     return(
             <div className={Styles.container}>
@@ -15,6 +23,7 @@ function Connexion(){
               <ul>
               {users.map((user) => (
                     <li key={user.id}>
+                      {/* Initialize Id in Context, and store it in localStorage */}
                     <Link className={Styles.button} to={`/user/${user.id}`}  onClick={() => {handleUserSelect({ 'userId': user.id });localStorage.clear();localStorage.setItem('defaultUser',user.id)}}>
                         {user.userInfos.firstName}
                     </Link>

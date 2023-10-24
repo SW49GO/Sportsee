@@ -1,11 +1,16 @@
-import PropTypes from 'prop-types';
 import Styles from '../styles/Card.module.css'
+import PropTypes from 'prop-types';
 
+/**
+ * Function to display cards
+ * @param {string} props 
+ * @returns {JSX.Element}
+ */
 function Card(props){
 
     const icon = props.icon
     const name = props.name
-    const value = props.value
+    const value = props.cardValue
 
     const icones =[
         "calories-icon.svg",

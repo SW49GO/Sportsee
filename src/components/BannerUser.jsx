@@ -1,32 +1,40 @@
-import { useContext } from "react"
-import { Context } from "../context/Context";
+import { useFetchMainData } from '../hooks/useFetchMainData'
 import Styles from '../styles/BannerUser.module.css'
-import Error from "./Error";
-import { useFetchMainData } from "../hooks/useFetchMainData";
+import { Context } from '../context/Context'
+import { useContext } from 'react'
+import Error from './Error'
 
+/**
+ * Function to display user banner or infos user
+ * @returns {JSX.Element}
+ */
 function BannerUser(){
 
     const {selectedUserId, modeProd} = useContext(Context);
-    // Vérification du modeProd pour l'appel et récupération des données par un hook personnalisé
+    // Checking the modeProd for the call and retrieving data using a custom hook
     const datas = useFetchMainData(selectedUserId, modeProd)
 
-if(datas){
-    return(
-        <div className={Styles.banner}>
-            {modeProd ? <> 
-                    <p>Bonjour <span>{datas.userInfos.firstName.charAt(0).toUpperCase() + datas.userInfos.firstName.slice(1)}</span></p>
-                    <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
-                    </>
-                    :<><p>Utilisateur: </p><p>{datas.userInfos.lastName.charAt(0).toUpperCase() + datas.userInfos.lastName.slice(1)} {datas.userInfos.firstName.charAt(0).toUpperCase() + datas.userInfos.firstName.slice(1)}</p><p>Age : {datas.userInfos.age} ans</p>
-                    </>
-            }
-        </div>
-    )
-}else{
-    return(
-    <Error message="noUser"/>
-    )
-}
+    if(datas && datas!=="err"){
+        return(
+            <div className={Styles.banner}>
+                {modeProd ? <> 
+                        <p>Bonjour <span>{datas.userInfos.firstName.charAt(0).toUpperCase() + datas.userInfos.firstName.slice(1)}</span></p>
+                        <p className={Styles.message}>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
+                        </>
+                        :<><p>Utilisateur: </p><p className={Styles.lastName}>IDENTITE : { datas.userInfos.lastName.charAt(0).toUpperCase() + datas.userInfos.lastName.slice(1)} {datas.userInfos.firstName.charAt(0).toUpperCase() + datas.userInfos.firstName.slice(1)}</p><p>AGE : {datas.userInfos.age} ans</p>
+                        </>
+                }
+            </div>
+        )
+    }else if (datas===''){
+        return(
+        <><Error message="noUser"/></>
+        )
+    }else if (datas==='err'){
+        return(
+        <><Error message="err"/></>
+        )
+    }
 }
 
 export default BannerUser

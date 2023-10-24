@@ -1,18 +1,19 @@
-import { RadarChart,Radar, ResponsiveContainer,PolarAngleAxis,PolarGrid, PolarRadiusAxis} from "recharts";
-import { useState, useContext,useEffect } from "react";
-import { Context } from '../../context/Context';
+import { RadarChart,Radar, ResponsiveContainer,PolarAngleAxis,PolarGrid, PolarRadiusAxis} from 'recharts'
+import { useFetchDatas } from '../../hooks/useFetchDatas'
+import { useState, useContext,useEffect } from 'react'
 import Styles from '../../styles/RadarChart.module.css'
-import Error from "../Error";
-import { useFetchDatas } from "../../hooks/useFetchDatas";
+import { Context } from '../../context/Context'
+import Error from "../Error"
+
 
 /**
- * Function to build component
- * @returns Component RadarChart
+ * Function to build component RadarChart
+ * @returns {JSX.Element}
  */
 function RadarCharts(){
 // Retrieving the Context id
     const {selectedUserId, modeProd } = useContext(Context);
-    // Vérification du modeProd pour l'appel et récupération des données par un hook personnalisé
+    // Checking the modeProd for the call and retrieving data using a custom hook
     const datas = useFetchDatas(selectedUserId, modeProd,'performance')
      // Creating an object to reformat data from (kind and data)
     let newDatas={}
@@ -56,7 +57,7 @@ function RadarCharts(){
        };
      }, []);
 
-     if(datas && datas!=="err"){
+    if(datas && datas!=="err"){
         return(
             <div className={Styles.radarChart}>
                 <ResponsiveContainer  width="100%" height="100%" className={Styles.container}>

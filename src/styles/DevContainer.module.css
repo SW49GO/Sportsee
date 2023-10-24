@@ -1,7 +1,8 @@
 .container{
     padding-left: 10rem;
     padding-top: 10rem;
-    height:48rem;
+    /* height:48rem; */
+    height:100vh;
 }
 .barCharts{
     width: 95%;
@@ -30,7 +31,5 @@
     margin: 0 auto;
     margin-top: 4rem;
 }
-.radarChart, .lineChart{
-    transform: scale(1.5);
-}
+
 

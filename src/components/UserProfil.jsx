@@ -13,16 +13,17 @@ import { useContext} from 'react'
 
 
 /**
- * 
+ * Function to display components about user in 2 mode (user or developer)
  * @returns {JSX.Element}
  */
 function UserInfos(){
     const {selectedUserId, modeProd}=useContext(Context)
     // Checking the modeProd for the call and retrieving data using a custom Hook
     const datas = useFetchMainData(selectedUserId, modeProd)
-
     let keyDataArray, valueDataArray
+
     if(datas && datas!=="err"){
+    // Creation of 2 tables to extract keys and values of keyData
     keyDataArray = Object.keys(datas.keyData)
     valueDataArray = Object.values(datas.keyData)
 
@@ -51,7 +52,7 @@ function UserInfos(){
                         </div>
                         <div className={Styles.containerCards}>
                                 {keyDataArray.map((name, index) => (
-                                    <Card key={index} icon={index} name={name.charAt(0).toUpperCase() + name.slice(1)} value={Number(valueDataArray[index]).toLocaleString("en-US") } />
+                                    <Card key={index} icon={index} name={name.charAt(0).toUpperCase() + name.slice(1)} cardValue={Number(valueDataArray[index]).toLocaleString("en-US") } />
                                     ))
                                 }
                         </div>
@@ -63,7 +64,7 @@ function UserInfos(){
                 <>
                     <div>
                         <BannerUser/>
-                        <h3 className={Styles.completion}>Complétion de l’objectif journalier :</h3>
+                        <h3 className={Styles.completion}>Complétion de l'objectif journalier :</h3>
                     </div>
                     <div className={Styles.containerDev}>
                         <div className={Styles.radialBarChart}>

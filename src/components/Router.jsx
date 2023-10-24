@@ -1,14 +1,18 @@
 import {BrowserRouter , Routes, Route, Navigate} from 'react-router-dom'
-import NavBar from './NavBar'
-import Connexion from './Connexion'
-import Profil from '../pages/Profil'
 import Error from '../components/Error'
+import Profil from '../pages/Profil'
+import Connexion from './Connexion'
+import NavBar from './NavBar'
 
-
+/**
+ * Function for routing
+ * @returns {JSX.Element}
+ */
 function Router(){
 
     /**
-     * Function to select the user
+     * Function to redirect the path '/' to '/user/connexion'
+     * @returns {JSX.Element}
      */
     const RedirectConnexion=()=> {
         return <Navigate to='/user/connexion'/>

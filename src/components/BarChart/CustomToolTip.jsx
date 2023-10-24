@@ -1,7 +1,7 @@
 import Styles from '../../styles/CustomToolTips.module.css'
 
 function CustomToolTip({ active, payload }) {
-    // Les données sources du contenu à afficher dans la légende pour chaque couple de barre
+    // The source data of the content to display in the legend for each pair of bars
 	if (active && payload && payload.length) {
 		return (
 			<div className={Styles.barChartTip}>

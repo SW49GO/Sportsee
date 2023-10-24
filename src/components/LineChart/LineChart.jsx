@@ -1,22 +1,22 @@
-import { LineChart, ResponsiveContainer,XAxis,YAxis,Tooltip,Line, Rectangle} from "recharts";
-import { useFetchDatas } from "../../hooks/useFetchDatas";
+import { LineChart, ResponsiveContainer,XAxis,YAxis,Tooltip,Line, Rectangle} from 'recharts'
+import { useFetchDatas } from '../../hooks/useFetchDatas'
 import Styles from '../../styles/LineChart.module.css'
 import { Context } from '../../context/Context'
 import CustomToolTip from './CustomToolTip'
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 import { useContext} from 'react'
 import Error from '../Error'
 
 
 /**
- * Function to build a component
- * @returns Component LineChart
+ * Function to build a component LineChart
+ * @returns {JSX.Element}
  */
 function LineCharts(){
 // Retrieving the context id user
   const {selectedUserId, modeProd } = useContext(Context);
 
-// Checking the Prod mode for the call and retrieving data using a custom hook
+// Checking the modeProd for the call and retrieving data using a custom hook
   const datas = useFetchDatas(selectedUserId, modeProd,'average-sessions')
 
   // Function to change each day value by a letter -> used by tickFormatter
@@ -49,7 +49,7 @@ function LineCharts(){
           margin={{ top: 0, bottom: 15 }}>
             <XAxis dataKey="day" axisLine={false} tickLine={false} interval="preserveStartEnd" tick={{fill:'#FFF', fillOpacity:0.7, fontSize:12}} tickFormatter={formatDay}/>
             <YAxis hide domain={['dataMin-20', 'dataMax+15']}/>
-            {/* Outils pour customiser l'affichage du rectangle et le curseur */}
+            {/* Outils pour customiser l'affichage du rectangle et le curseur*/}
             <Tooltip content={<CustomToolTip />} cursor={<CustomCursor />}/>
             {/* Définition d'un dégradé pour la ligne */}
             <defs>

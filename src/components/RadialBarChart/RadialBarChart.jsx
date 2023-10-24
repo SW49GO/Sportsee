@@ -1,25 +1,28 @@
 import { RadialBarChart, ResponsiveContainer,RadialBar} from 'recharts'
-import { useContext } from 'react'
-import { Context } from '../../context/Context'
-import Styles from '../../styles/RadialBarChart.module.css'
-import Error from '../Error'
 import { useFetchMainData } from '../../hooks/useFetchMainData'
+import Styles from '../../styles/RadialBarChart.module.css'
+import { Context } from '../../context/Context'
+import { useContext } from 'react'
+import Error from '../Error'
+
 
 /**
- * Function to build component
- * @returns components RadialBarChart
+ * Function to build component RadialBarChart
+ * @returns {JSX.Element}
  */
 function RadialBarCharts(){
-     const {selectedUserId, modeProd}=useContext(Context)
-     // Vérification du modeProd pour l'appel et récupération des données par un hook personnalisé
-     const datas = useFetchMainData(selectedUserId, modeProd)
+    const {selectedUserId, modeProd}=useContext(Context)
+    // Checking the modeProd for the call and retrieving data using a custom hook
+    const datas = useFetchMainData(selectedUserId, modeProd)
 
-if (datas && datas!=="err"){
- const dataArray = [{ name: datas.score * 100 + '%', value: datas.score * 100, fill:'#ff0000'}]
+  if (datas && datas!=="err"){
+  // Table to format data
+  const dataArray = [{ name: datas.score * 100 + '%', value: datas.score * 100, fill:'#ff0000'}]
 
     return(
       <div className={Styles.radialBarChart}>
         <h3 className={Styles.title}>Score</h3>
+        {/* SVG circle white in the middle of RadialBarChart */}
         <svg width="60%" height="60%" className={Styles.svg}>
             <circle cx="50%" cy="50%" r="40.5%" fill="#fff"/>
         </svg>

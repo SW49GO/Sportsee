@@ -10,6 +10,13 @@
 .banner p:first-child span{
     color:#FF0101;
 }
-.banner p:nth-child(2){
+.message{
     font-size: 1rem;
 } 
+.lastName{
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+.lastName + p{
+    font-size: 1.5rem; 
+}

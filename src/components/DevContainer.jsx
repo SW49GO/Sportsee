@@ -1,27 +1,32 @@
-import { useParams } from 'react-router-dom'
-import { useEffect,useState } from 'react'
-import { fetchMainData } from '../services/api'
 import Styles from '../styles/DevContainer.module.css'
-import BarCharts from './BarChart/BarChart'
-import LineCharts from './LineChart/LineChart'
 import RadarCharts from './RadarChart/RadarChart'
-import Card from './Card'
+import { fetchMainData } from '../services/api'
+import LineCharts from './LineChart/LineChart'
+import { useParams } from 'react-router-dom'
+import BarCharts from './BarChart/BarChart'
+import { useEffect,useState } from 'react'
 import Error from './Error'
+import Card from './Card'
 
+/**
+ * Function to display the different components according to the url
+ * @returns {JSX.Element}
+ */
 function DevContainer(){
-    // récupération du endpoint de l'url
     const url = useParams()
-    console.log('url:', url)
     const [datas, setDatas] = useState(null)
-      // Récupération des données pour créer les cartes
+
+      // Retrieving data to create all Card
       useEffect(()=>{
         fetchMainData(url.userId,setDatas)
     },[url])
+
     let keyDataArray, valueDataArray
 
     if(datas && datas!=="err"){
         keyDataArray = Object.keys(datas.keyData)
         valueDataArray = Object.values(datas.keyData)
+        // Retrieving JSX.Element according to the endpoint of the URL
         if(url['*']==="activity"){
         return (
             <div className={Styles.container}>
@@ -31,7 +36,7 @@ function DevContainer(){
                 </div>
                 <div className={Styles.cards}>
                     {keyDataArray.map((name, index) => (
-                        <Card key={index} icon={index} name={name.charAt(0).toUpperCase() + name.slice(1)} value={Number(valueDataArray[index]).toLocaleString("en-US") } />
+                        <Card key={index} icon={index} name={name.charAt(0).toUpperCase() + name.slice(1)} cardValue={Number(valueDataArray[index]).toLocaleString("en-US") } />
                         ))
                     }
                 </div>

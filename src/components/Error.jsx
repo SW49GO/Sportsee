@@ -1,14 +1,23 @@
-import { useParams } from 'react-router-dom';
 import Styles from '../styles/Error.module.css'
-import PropTypes from 'prop-types';
+import { useParams } from 'react-router-dom'
+import PropTypes from 'prop-types'
+
+
+/**
+ * Function to manage error messages and authorized page
+ * @param {string} props 
+ * @returns {JSX.Element}
+ */
 function Error(props){
+
+    // Checking pages allowed for users
     const url = useParams()
-    // Authorized pages for users
     const authorizedPage = ['home','profil','settings','commmunity','yoga','swimming','bike','alter']
     let message = props.message
     if (url['*'] && !authorizedPage.includes(url['*'])) {
         message = "false";
     }
+
     return (
         <div className={Styles.message}>
           {(() => {
@@ -26,7 +35,6 @@ function Error(props){
                     }
                 })()}
         </div>
-       
         )
 }
 Error.propTypes = {
