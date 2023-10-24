@@ -33,7 +33,7 @@ function Card(props){
 Card.propTypes = {
     icon: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired
+    cardValue: PropTypes.string.isRequired
 }
 
 export default Card

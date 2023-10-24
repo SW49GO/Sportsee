@@ -2,12 +2,6 @@ import {USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE} 
 import { TranslateUserPerformance } from './translateUserPerformance'
 import {ChangeUserMainData} from './changeUserMainData'
 
-
-///////////////////////////////////////////////////////////////
-// Bascule entre Environnement Dev (dataMocked) et Prod (Api)//
-const modeDataMocked = 'false'
-///////////////////////////////////////////////////////////////
-
 /**
  * Function to retrieve all users for simulation connexion
  * @returns object 
@@ -27,7 +21,7 @@ export async function fetchMainData(userId, setDatas) {
         userId=userId.userId
     }
 
-    if(process.env.REACT_APP_DATA_MOCKED === modeDataMocked){
+    if(process.env.REACT_APP_DATA_MOCKED){
 
         const userMainData = USER_MAIN_DATA.find((user)=>{
             if(userId && user.id === parseInt(userId)){
@@ -70,7 +64,7 @@ export async function fetchMainData(userId, setDatas) {
         userId=userId.userId
         }
 
-    if(process.env.REACT_APP_DATA_MOCKED === modeDataMocked){
+    if(process.env.REACT_APP_DATA_MOCKED){
 
         if(endpoint === "activity" && userId){
             const userActivity = USER_ACTIVITY.filter((user)=>{
