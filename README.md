@@ -18,7 +18,7 @@ git clone https://github.com/SW49GO/P9-front-end-dashboard
 ```bash
 yarn install
 ```
-3-Run the backend (default port: 3000)
+3-Run the backend (micro API default port: 3000)
 ```bash
 yarn dev
 ```

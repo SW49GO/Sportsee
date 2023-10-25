@@ -1,4 +1,4 @@
-import Styles from '../styles/Error.module.css'
+import Styles from '../styles/error.module.css'
 import { useParams } from 'react-router-dom'
 import PropTypes from 'prop-types'
 

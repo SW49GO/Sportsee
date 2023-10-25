@@ -10,58 +10,7 @@
     height: 100vh;
 }
 .profilPage{
-    width: 100%;
-    height: 92%;
-}
-.container, .containerDev{
-    display: flex;
-    width: 100%;
-    height: 82%;
-}
-.containerDev{
-    justify-content: center;
-    height: 44%;
-}
-.containerDev .radialBarChart{
-    margin-top: 5rem;
-    transform: scale(1.5);
-}
-.completion{
-    display: inline-block;
-    margin-bottom: 2rem;
-    margin-left: 25%;
-    border-bottom: 2px solid #000;
-}
-.containerChartsGlobal{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 70%;
-    /* width: 52.1875vw; */
-}
-.containerBarChart{
-    height: 55%;
     width: 90%;
-    margin-left: 5%;
-}
-.container3Charts{
-    display: flex;
-    justify-content: space-between;
-    margin-left: 5%;
-    width: 90%;
-    height: 37%;
-}
-
-.radialBarChart{
-    position:relative;
-}
-.containerCards{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-}
-.lineChart, .radarChart, .radialBarChart{
-    width: 31%;
-    height: 100%;
+    margin: 0 auto;
+    height: 80%;
 }

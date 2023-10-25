@@ -1,7 +1,7 @@
 import { RadarChart,Radar, ResponsiveContainer,PolarAngleAxis,PolarGrid, PolarRadiusAxis} from 'recharts'
 import { useFetchDatas } from '../../hooks/useFetchDatas'
 import { useState, useContext,useEffect } from 'react'
-import Styles from '../../styles/RadarChart.module.css'
+import Styles from '../../styles/radarChart.module.css'
 import { Context } from '../../context/Context'
 import Error from "../Error"
 

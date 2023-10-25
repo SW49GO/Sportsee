@@ -1,7 +1,7 @@
 import { useFetchMainData } from '../hooks/useFetchMainData'
 import DevContainer from '../components/DevContainer'
 import UserProfil from '../components/UserProfil'
-import Styles from '../styles/Profil.module.css'
+import Styles from '../styles/profil.module.css'
 import { useParams } from 'react-router-dom'
 import {Context} from '../context/Context'
 import Error from '../components/Error'

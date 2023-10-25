@@ -1,4 +1,4 @@
-import Styles from '../styles/Card.module.css'
+import Styles from '../styles/card.module.css'
 import PropTypes from 'prop-types';
 
 /**

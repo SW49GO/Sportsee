@@ -11,17 +11,4 @@
     background-color: #fff;
     padding: 0.3rem;
 }
-/* 
-.lineChartTip:before{
-    content:"";
-    display: block;
-    position: absolute;
-    top: -500px;
-    left: 0px;
-    transform: translate(-10px, -5px);
-    width: 1000px;
-    height: 1000px;
-    background-color: rgba(0, 0, 0, 0.1); */
-    /*Force to differ the color*/
-    /* mix-blend-mode: difference;
-} */
+

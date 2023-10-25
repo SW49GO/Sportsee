@@ -1,7 +1,6 @@
 .container{
     padding-left: 10rem;
     padding-top: 10rem;
-    /* height:48rem; */
     height:100vh;
 }
 .barCharts{
@@ -14,8 +13,7 @@
     justify-content: space-around;
     gap:1rem;
     width: 95%;
-    height:25%;
-    margin-top: 8%;
+    height:70%;
 }
 .radarChart h3, .lineChart h2, .barCharts h3:first-child{
     display: inline-block;

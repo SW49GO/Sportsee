@@ -1,4 +1,4 @@
-import Styles from '../styles/Connexion.module.css'
+import Styles from '../styles/connexion.module.css'
 import { getAllUser} from '../services/api'
 import {Context} from '../context/Context'
 import {Navigate} from 'react-router-dom'

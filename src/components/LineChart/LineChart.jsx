@@ -1,6 +1,6 @@
 import { LineChart, ResponsiveContainer,XAxis,YAxis,Tooltip,Line, Rectangle} from 'recharts'
 import { useFetchDatas } from '../../hooks/useFetchDatas'
-import Styles from '../../styles/LineChart.module.css'
+import Styles from '../../styles/lineChart.module.css'
 import { Context } from '../../context/Context'
 import CustomToolTip from './CustomToolTip'
 import PropTypes from 'prop-types'

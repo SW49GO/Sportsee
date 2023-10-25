@@ -1,4 +1,4 @@
-import Styles from '../styles/DevContainer.module.css'
+import Styles from '../styles/devContainer.module.css'
 import RadarCharts from './RadarChart/RadarChart'
 import { fetchMainData } from '../services/api'
 import LineCharts from './LineChart/LineChart'

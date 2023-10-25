@@ -1,5 +1,5 @@
 import { useFetchMainData } from '../hooks/useFetchMainData'
-import Styles from '../styles/BannerUser.module.css'
+import Styles from '../styles/bannerUser.module.css'
 import { Context } from '../context/Context'
 import { useContext } from 'react'
 import Error from './Error'

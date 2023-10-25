@@ -1,4 +1,4 @@
-import Styles from '../styles/NavBar.module.css'; 
+import Styles from '../styles/navBar.module.css'; 
 import {Context} from '../context/Context'
 import { Link } from 'react-router-dom';
 import {useContext} from 'react'
@@ -27,7 +27,7 @@ function NavBar() {
           <>
           <Link to={`/user/${selectedUserId.userId}/home`}>Accueil</Link>
           <Link to={`/user/${selectedUserId.userId}`}>Profil</Link>
-          <Link to={`/user/${selectedUserId.userId}/settings`}>Réglages</Link>
+          <Link to={`/user/${selectedUserId.userId}/settings`}>Réglage</Link>
           <Link to={`/user/${selectedUserId.userId}/community`}>Communauté</Link>
           </>
           : 

@@ -1,4 +1,4 @@
-import Styles from '../../styles/CustomToolTips.module.css'
+import Styles from '../../styles/customToolTips.module.css'
 
 function CustomToolTip({ active, payload }) {
     // The source data of the content to display in the legend for each pair of bars

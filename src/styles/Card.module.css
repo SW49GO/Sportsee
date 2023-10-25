@@ -3,15 +3,13 @@
     gap:1rem;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.02);
-    width: 90%;
-    /* height: 21.1%; */
-    height: 7.75rem;
-    /* margin-top: 7%; */
+    height: 18.5%;
     padding: 0.2rem;
     border-radius: 5px;
+    width: 16.125rem;
 }
 .container img {
-    margin: 0.5rem;
+    margin: 1rem;
 }
 .legend{
     line-height: 1.5rem;

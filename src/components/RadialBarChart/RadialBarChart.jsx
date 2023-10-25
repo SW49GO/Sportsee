@@ -1,6 +1,6 @@
 import { RadialBarChart, ResponsiveContainer,RadialBar} from 'recharts'
 import { useFetchMainData } from '../../hooks/useFetchMainData'
-import Styles from '../../styles/RadialBarChart.module.css'
+import Styles from '../../styles/radialBarChart.module.css'
 import { Context } from '../../context/Context'
 import { useContext } from 'react'
 import Error from '../Error'
@@ -24,7 +24,7 @@ function RadialBarCharts(){
         <h3 className={Styles.title}>Score</h3>
         {/* SVG circle white in the middle of RadialBarChart */}
         <svg width="60%" height="60%" className={Styles.svg}>
-            <circle cx="50%" cy="50%" r="40.5%" fill="#fff"/>
+            <circle cx="50%" cy="50%" r="42%" fill="#fff"/>
         </svg>
         <div className={Styles.legend}><p>{dataArray[0].name}</p><p>de votre objectif</p></div>
             <ResponsiveContainer width="100%" height="100%" className={Styles.container}>
@@ -32,11 +32,12 @@ function RadialBarCharts(){
                     data={dataArray} 
                     innerRadius="60%" 
                     outerRadius="60%" 
-                    barSize={10}
+                    barSize={12}
                     startAngle={210}
                     endAngle={210 - (datas.score * 360)}
+                    margin={0}
                     >
-                    <RadialBar minAngle={0} cornerRadius={10} background clockWise={true} dataKey='value' />
+                    <RadialBar minAngle={0} cornerRadius={10} background clockWise={true} dataKey='value'/>
                   </RadialBarChart>
             </ResponsiveContainer>
       </div>

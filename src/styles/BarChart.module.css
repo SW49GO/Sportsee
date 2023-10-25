@@ -1,6 +1,5 @@
 .barChart{
-    width: 100%;
-    height: 36vh;
+    height: 31.3vh;
     background-color: rgba(0, 0, 0, 0.02);
 }
 .container{
@@ -9,7 +8,7 @@
 .title{
     position:relative;
     top:2.3rem;
-    left:1rem;
+    left:2rem;
     font-size: .9375rem;
     font-weight: 500;
 }
