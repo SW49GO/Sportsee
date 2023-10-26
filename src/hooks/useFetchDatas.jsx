@@ -26,11 +26,11 @@ export function useFetchDatas(userId, modeProd, endpoint) {
         const user = { 'userId': parseInt(localStorage.getItem('defaultUser')) }
         handleUserSelect(user)
       }else{
-        fetchData(userId, setDatas, endpoint);
+        fetchData(userId, setDatas, endpoint)
       }
     } else {
         fetchData(url.userId,setDatas, endpoint)
     }
-  }, [userId, modeProd,url,endpoint, handleUserSelect]);
-  return datas;
+  }, [userId, modeProd,url,endpoint, handleUserSelect])
+  return datas
 }

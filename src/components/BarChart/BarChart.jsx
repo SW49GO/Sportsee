@@ -1,10 +1,12 @@
 import {ResponsiveContainer, BarChart, CartesianGrid, XAxis, YAxis, Tooltip,Legend,Bar} from 'recharts'
+import { useTestScreenSize } from '../../hooks/useTestScreenSize'
 import { useFetchDatas } from '../../hooks/useFetchDatas'
-import { useContext, useEffect, useState } from 'react'
+import { useContext } from 'react'
 import Styles from '../../styles/barChart.module.css'
 import { Context } from '../../context/Context'
 import CustomToolTip from './CustomToolTip'
 import Error from '../Error';
+
 
 /**
  * Function to build a component BarChart
@@ -16,28 +18,9 @@ function BarCharts(){
 
     // Checking the modeProd for the call and retrieving data using a custom hook
     const datas = useFetchDatas(selectedUserId, modeProd,'activity')
+    // Using custom hook to check screen size to adjust horizontal axis
+    const paddingBar = useTestScreenSize('barChart')
 
-        // Adjust the paddingBar of the BarChart according to the screen size
-        const [paddingBar, setPaddingBar] = useState(-30);
-
-        useEffect(() => {
-          const handleResize = () => {
-            const screenWidth = window.innerWidth;
-            if (screenWidth <= 1024) {
-                setPaddingBar(-30);
-            }else{
-                setPaddingBar(-50);
-            }
-          }
-          // Event to detect screen size change
-          window.addEventListener('resize', handleResize);
-             handleResize();
-          // Removed events when the component is dismount
-          return () => {
-            window.removeEventListener('resize', handleResize);
-          };
-        }, []);
-        
 
     if(datas && datas!=="err"){
     return (

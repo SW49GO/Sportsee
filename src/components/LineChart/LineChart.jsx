@@ -21,7 +21,7 @@ function LineCharts(){
 
   // Function to change each day value by a letter -> used by tickFormatter
    const formatDay = (value) => {
-    const data = {1: '   L',2: 'M',3: 'M',4: 'J',5: 'V',6: 'S',7: 'D   '}
+    const data = {1: ' L',2: 'M',3: 'M',4: 'J',5: 'V',6: 'S',7: 'D '}
     return data[value]
   }
 
@@ -48,7 +48,7 @@ function LineCharts(){
           data={datas}
           margin={{ top: 0, bottom: 15 }}>
             <XAxis dataKey="day" axisLine={false} tickLine={false} interval="preserveStartEnd" tick={{fill:'#FFF', fillOpacity:0.7, fontSize:12}} tickFormatter={formatDay}/>
-            <YAxis hide domain={['dataMin-20', 'dataMax+15']}/>
+            <YAxis hide domain={['dataMin-15', 'dataMax+30']}/>
             {/* Outils pour customiser l'affichage du rectangle et le curseur*/}
             <Tooltip content={<CustomToolTip />} cursor={<CustomCursor />}/>
             {/* Définition d'un dégradé pour la ligne */}
