@@ -4,7 +4,7 @@ import {ChangeUserMainData} from './changeUserMainData'
 
 /**
  * Function to retrieve all users for simulation connexion
- * @returns object 
+ * @returns {object} 
  */
 export async function getAllUser(){
     return USER_MAIN_DATA
@@ -39,7 +39,7 @@ export async function fetchMainData(userId, setDatas) {
                 const response = await fetch (`http://localhost:3000/user/${userId}`)
                 // [200-299] réponse ok from network
                 if(response.ok) {
-                    const results = await response.json();
+                    const results = await response.json()
                     ChangeUserMainData(results.data)
                     setDatas(results.data)
                 }else if(response.status===404){

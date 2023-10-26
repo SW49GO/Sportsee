@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 
 /**
- * Function to manage error messages and authorized page
+ * Component function to manage error messages and authorized page
  * @param {string} props 
  * @returns {JSX.Element}
  */

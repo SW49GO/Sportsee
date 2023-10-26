@@ -9,7 +9,7 @@ import Error from './Error'
 import Card from './Card'
 
 /**
- * Function to display the different components according to the url
+ * Component function to display the different components according to the url
  * @returns {JSX.Element}
  */
 function DevContainer(){

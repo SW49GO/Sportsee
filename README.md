@@ -49,10 +49,12 @@ _⚠️Manually configurable_
 
 ## Useful end points :
 _Default Users_:
+- Default route : http://localhost:3001/user/connexion
 - http://localhost:3001/user/12
 - http://localhost:3001/user/18
 
 _In Developer mode_:
+- Default route : http://localhost:3001/user/
 - User Informations and Completion the daily goal : http://localhost:3001/user/${userId}
 - Information on weight and calories burned and 
 on the calories, proteins, carbohydrates and lipids of the day:  http://localhost:3000/user/${userId}/activity

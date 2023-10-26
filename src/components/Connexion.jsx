@@ -9,12 +9,12 @@ import { useContext} from 'react'
 const users = await getAllUser()
 
 /**
- * Function to simulate a user login by choosing a user from a list
+ * Component function to simulate a user login by choosing a user from a list
  * @returns {JSX.Element}
  */
 function Connexion(){
   // Retrieve handleUserSelect to initialize selectedUserId when selected user
-  const { handleUserSelect, modeProd} = useContext(Context);
+  const { handleUserSelect, modeProd} = useContext(Context)
 
   if(modeProd){
     return(

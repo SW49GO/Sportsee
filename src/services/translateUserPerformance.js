@@ -11,12 +11,12 @@ export function TranslateUserPerformance(data){
       'speed': 'vitesse',
       'intensity': 'intensité'
     };
-
+// Replace the value of each key of data.kind by corresponding value of key kindMapping
     for (const key in data.kind) {
       if (data.kind.hasOwnProperty(key)) {
-        const originalValue = data.kind[key];
+        const originalValue = data.kind[key]
         if (kindMapping[originalValue]) {
-          data.kind[key] = kindMapping[originalValue];
+          data.kind[key] = kindMapping[originalValue]
         }
       }
     }

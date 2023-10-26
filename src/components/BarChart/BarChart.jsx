@@ -1,20 +1,20 @@
 import {ResponsiveContainer, BarChart, CartesianGrid, XAxis, YAxis, Tooltip,Legend,Bar} from 'recharts'
 import { useTestScreenSize } from '../../hooks/useTestScreenSize'
 import { useFetchDatas } from '../../hooks/useFetchDatas'
-import { useContext } from 'react'
 import Styles from '../../styles/barChart.module.css'
 import { Context } from '../../context/Context'
 import CustomToolTip from './CustomToolTip'
-import Error from '../Error';
+import { useContext } from 'react'
+import Error from '../Error'
 
 
 /**
- * Function to build a component BarChart
+ * Component function to build a component BarChart
  * @returns {JSX.Element}
  */
 function BarCharts(){
     // Retrieving the context id user
-    const {selectedUserId, modeProd } = useContext(Context);
+    const {selectedUserId, modeProd } = useContext(Context)
 
     // Checking the modeProd for the call and retrieving data using a custom hook
     const datas = useFetchDatas(selectedUserId, modeProd,'activity')

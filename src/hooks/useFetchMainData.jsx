@@ -29,6 +29,6 @@ export function useFetchMainData(userId, modeProd) {
     } else {
         fetchMainData(url.userId,setDatas)
     }
-  }, [userId, modeProd,url, handleUserSelect]);
+  }, [userId, modeProd,url, handleUserSelect])
   return datas;
 }

@@ -10,10 +10,10 @@
 
 .cards{
     display: flex;
-    justify-content: space-around;
+    flex-wrap: wrap;
+    justify-content: center;
     gap:1rem;
-    width: 95%;
-    height:70%;
+    width: 90%;
 }
 .radarChart h3, .lineChart h2, .barCharts h3:first-child{
     display: inline-block;

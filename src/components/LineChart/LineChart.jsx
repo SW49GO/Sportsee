@@ -9,12 +9,12 @@ import Error from '../Error'
 
 
 /**
- * Function to build a component LineChart
+ * Component function to build a component LineChart
  * @returns {JSX.Element}
  */
 function LineCharts(){
 // Retrieving the context id user
-  const {selectedUserId, modeProd } = useContext(Context);
+  const {selectedUserId, modeProd } = useContext(Context)
 
 // Checking the modeProd for the call and retrieving data using a custom hook
   const datas = useFetchDatas(selectedUserId, modeProd,'average-sessions')

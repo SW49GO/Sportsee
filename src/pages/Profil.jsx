@@ -8,7 +8,7 @@ import Error from '../components/Error'
 import { useContext} from 'react'
 
 /**
- * Function to display all components
+ * Component function to display all components
  * @returns {JSX.Element}
  */
 function Profil(){

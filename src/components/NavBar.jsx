@@ -1,11 +1,11 @@
-import Styles from '../styles/navBar.module.css'; 
+import Styles from '../styles/navBar.module.css' 
 import {Context} from '../context/Context'
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 import {useContext} from 'react'
 
 
 /**
- * Function to display the menus
+ * FComponent function to display the menus
  * @returns {JSX.Element}
  */
 function NavBar() {
@@ -62,4 +62,4 @@ function NavBar() {
   )
 }
 
-export default NavBar;
+export default NavBar

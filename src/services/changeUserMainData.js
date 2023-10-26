@@ -11,19 +11,20 @@ export function ChangeUserMainData(data){
         'carbohydrateCount':'glucides',
         'lipidCount': 'lipides'
     }
-    // Replacing todayScore key with score
+    // Replace todayScore key with score
     if(data.todayScore){
         data["score"] = data.todayScore
-          delete data["todayScore"];
+          delete data["todayScore"]
         }
 
     const updatedKeyData = {};
+    // Replace the value of each key of data.keyData by corresponding value of key keyDataMapping
     for (const key in data.keyData) {
         if (key in keyDataMapping) {
-        updatedKeyData[keyDataMapping[key]] = data.keyData[key];
+        updatedKeyData[keyDataMapping[key]] = data.keyData[key]
         } else {
-        updatedKeyData[key] = data.keyData[key];
+        updatedKeyData[key] = data.keyData[key]
         }
     }
-    data.keyData = updatedKeyData;
+    data.keyData = updatedKeyData
 }

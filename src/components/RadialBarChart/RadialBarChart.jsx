@@ -7,7 +7,7 @@ import Error from '../Error'
 
 
 /**
- * Function to build component RadialBarChart
+ * Component function to build component RadialBarChart
  * @returns {JSX.Element}
  */
 function RadialBarCharts(){

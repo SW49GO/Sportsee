@@ -1,8 +1,8 @@
 import Styles from '../styles/card.module.css'
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 
 /**
- * Function to display cards
+ * Component function to display cards
  * @param {string} props 
  * @returns {JSX.Element}
  */

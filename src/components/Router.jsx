@@ -5,7 +5,7 @@ import Connexion from './Connexion'
 import NavBar from './NavBar'
 
 /**
- * Function for routing
+ * Component function for routing
  * @returns {JSX.Element}
  */
 function Router(){

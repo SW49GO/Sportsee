@@ -5,12 +5,12 @@ import { useContext } from 'react'
 import Error from './Error'
 
 /**
- * Function to display user banner or infos user
+ * Component function to display user banner or infos user
  * @returns {JSX.Element}
  */
 function BannerUser(){
 
-    const {selectedUserId, modeProd} = useContext(Context);
+    const {selectedUserId, modeProd} = useContext(Context)
     // Checking the modeProd for the call and retrieving data using a custom hook
     const datas = useFetchMainData(selectedUserId, modeProd)
 

@@ -1,18 +1,18 @@
 import { RadarChart,Radar, ResponsiveContainer,PolarAngleAxis,PolarGrid, PolarRadiusAxis} from 'recharts'
-import { useFetchDatas } from '../../hooks/useFetchDatas'
 import { useTestScreenSize } from '../../hooks/useTestScreenSize'
-import { useContext} from 'react'
+import { useFetchDatas } from '../../hooks/useFetchDatas'
 import Styles from '../../styles/radarChart.module.css'
 import { Context } from '../../context/Context'
+import { useContext} from 'react'
 import Error from "../Error"
 
 /**
- * Function to build component RadarChart
+ * Component function to build component RadarChart
  * @returns {JSX.Element}
  */
 function RadarCharts(){
 // Retrieving the Context id
-    const {selectedUserId, modeProd } = useContext(Context);
+    const {selectedUserId, modeProd } = useContext(Context)
     // Checking the modeProd for the call and retrieving data using a custom hook
     const datas = useFetchDatas(selectedUserId, modeProd,'performance')
      // Creating an object to reformat data from (kind and data)
@@ -28,7 +28,7 @@ function RadarCharts(){
             })
         };
         // Reverse the order of kind objects in data
-        newDatas.data.reverse();
+        newDatas.data.reverse()
     }
     // Check screen size to adjust outerRadius of RadarChart with custom hook
     const outerRadius = useTestScreenSize('radarChart')
