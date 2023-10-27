@@ -17,12 +17,13 @@ import { useContext} from 'react'
  * @returns {JSX.Element}
  */
 function UserInfos(){
+    console.log('USERPROFIL')
     const {selectedUserId, modeProd}=useContext(Context)
     // Checking the modeProd for the call and retrieving data using a custom Hook
     const datas = useFetchMainData(selectedUserId, modeProd)
     let keyDataArray, valueDataArray
 
-    if(datas && datas!=="err"){
+    if(datas && datas!=="err" && datas!=="noUser"){
     // Creation of 2 tables to extract keys and values of keyData
     keyDataArray = Object.keys(datas.keyData)
     valueDataArray = Object.values(datas.keyData)
@@ -74,13 +75,9 @@ function UserInfos(){
                 </>
             )
         }
-    }else if(datas===''){
-        return(
-            <><Error message="noUser"/></>
-        )
-    } else {
+    }else {
         return (
-            <><Error message="err"/></>
+            <><Error message={datas}/></>
         )
     } 
 }

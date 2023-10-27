@@ -15,7 +15,7 @@ function MonProvider({ children }) {
 
 ///////////////////////////////////////////////////////////////////
 // Force USER or DEVELOPER environment mode (default .env "true")//
-    const modeProd =process.env.REACT_APP_USER_PROD==="false"
+    const modeProd =process.env.REACT_APP_USER_PROD
 //////////////////////////////////////////////////////////////////
 
 // State to store user Id

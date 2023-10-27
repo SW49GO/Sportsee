@@ -41,7 +41,7 @@ function LineCharts(){
 
   if(datas && datas!=="err"){
     return(
-      <div className={Styles.lineChart}>  
+      <div className={Styles.lineChart}>
         <h3 className={Styles.title}>Durée moyenne des sessions</h3>
         <ResponsiveContainer width="100%" height="100%" className={Styles.container}>
           <LineChart 
@@ -66,15 +66,11 @@ function LineCharts(){
         </ResponsiveContainer>
       </div>
     )
-  }else if(datas===''){
-    return(
-        <><Error message="404"/></>
-    )
   }else {
     return (
-        <><Error message="err"/></>
+        <><Error message={datas}/></>
     )
-  } 
+} 
 }
 
 export default LineCharts

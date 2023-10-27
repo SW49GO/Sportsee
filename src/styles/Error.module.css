@@ -3,8 +3,12 @@
     top: 5rem;
     left:5rem;
 }
-.network,.other,.noExist{
+.network,.wait,.noUser,.noExist{
     position:relative;
     top: 3rem;
     left: 3rem;
+}
+.other{
+    color:#ff0000;
+    font-size: 1rem;
 }

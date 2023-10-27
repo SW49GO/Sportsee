@@ -40,7 +40,7 @@ export function useTestScreenSize(theNameChart){
         // Event to detect screen size change
         window.addEventListener('resize', handleResize)
             handleResize()
-        // Removed events when the component is dismount
+        // Removed events before React dismount the component 
         return () => {
         window.removeEventListener('resize', handleResize)
         }

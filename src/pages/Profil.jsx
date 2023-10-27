@@ -12,13 +12,15 @@ import { useContext} from 'react'
  * @returns {JSX.Element}
  */
 function Profil(){
+    console.log('PROFIL')
     const url = useParams()
     const {selectedUserId, modeProd}=useContext(Context)
 
     // Checking the modeProd for the call and retrieving data using a custom hook
     const datas = useFetchMainData(selectedUserId, modeProd)
 
-    if(datas && datas!=="err"){
+    if(datas && datas!=="err" && datas!=="noUser"){
+        console.log('datas:', datas)
         if(Object.keys(url).length===1  && Object.keys(url)[0] === "userId"){
             //Access to the UserProfil component for any user (user or developer)
             return (
@@ -43,15 +45,9 @@ function Profil(){
                 <><Error message="true"/></>
             )
         }
-    }else if(datas===''){
-        // Message for datas not found 
+     }else{
         return (
-            <><Error message="noUser"/></>
-        )
-    }else {
-        // Message when Network Error 
-        return (
-            <><Error message="err"/></>
+            <><Error message={datas}/></>
         )
     }
 }

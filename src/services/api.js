@@ -21,8 +21,7 @@ export async function fetchMainData(userId, setDatas) {
         userId=userId.userId
     }
 
-    if(process.env.REACT_APP_DATA_MOCKED){
-
+    if(process.env.REACT_APP_DATA_MOCKED==="true"){
         const userMainData = USER_MAIN_DATA.find((user)=>{
             if(userId && user.id === parseInt(userId)){
                 if(user!== null){
@@ -33,7 +32,11 @@ export async function fetchMainData(userId, setDatas) {
             }
             return false
           })
+        if(userMainData){
         setDatas(userMainData)
+        }else{
+            setDatas('noUser')
+        }
     }else{
             try{
                 const response = await fetch (`http://localhost:3000/user/${userId}`)
@@ -43,7 +46,7 @@ export async function fetchMainData(userId, setDatas) {
                     ChangeUserMainData(results.data)
                     setDatas(results.data)
                 }else if(response.status===404){
-                    setDatas('')
+                    setDatas('noUser')
                 }
             }catch(err){
                 console.log(err)
@@ -64,7 +67,7 @@ export async function fetchMainData(userId, setDatas) {
         userId=userId.userId
         }
 
-    if(process.env.REACT_APP_DATA_MOCKED){
+    if(process.env.REACT_APP_DATA_MOCKED==="true"){
 
         if(endpoint === "activity" && userId){
             const userActivity = USER_ACTIVITY.filter((user)=>{
@@ -73,7 +76,11 @@ export async function fetchMainData(userId, setDatas) {
                     }
                 return false
                 })
-            setDatas(userActivity[0].sessions)
+            if(userActivity.length!==0){
+                setDatas(userActivity[0].sessions)
+            }else{
+                setDatas('err')
+            }
         }
         if(endpoint === "average-sessions"  && userId){
             const userSessions = USER_AVERAGE_SESSIONS.filter((user)=>{
@@ -82,7 +89,11 @@ export async function fetchMainData(userId, setDatas) {
                 }
             return false
             })
-            setDatas(userSessions[0].sessions)
+            if(userSessions.length!==0){
+                setDatas(userSessions[0].sessions)
+            }else{
+                setDatas('err')
+            }
         }
         if(endpoint === "performance" && userId){
             const userPerformance = USER_PERFORMANCE.filter((user)=>{
@@ -95,7 +106,11 @@ export async function fetchMainData(userId, setDatas) {
                 }
                 return false
             })
-            setDatas( userPerformance[0])
+            if(userPerformance.length!==0){
+                setDatas(userPerformance[0])
+            }else{
+                setDatas('err')
+            }
         }
     }else{
         try{

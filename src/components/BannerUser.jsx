@@ -14,7 +14,7 @@ function BannerUser(){
     // Checking the modeProd for the call and retrieving data using a custom hook
     const datas = useFetchMainData(selectedUserId, modeProd)
 
-    if(datas && datas!=="err"){
+    if(datas && datas!=="err" && datas!=="noUser"){
         return(
             <div className={Styles.banner}>
                 {modeProd ? <> 
@@ -26,15 +26,11 @@ function BannerUser(){
                 }
             </div>
         )
-    }else if (datas===''){
-        return(
-        <><Error message="noUser"/></>
+    }else {
+        return (
+            <><Error message={datas}/></>
         )
-    }else if (datas==='err'){
-        return(
-        <><Error message="err"/></>
-        )
-    }
+    } 
 }
 
 export default BannerUser

@@ -33,7 +33,7 @@ function RadarCharts(){
     // Check screen size to adjust outerRadius of RadarChart with custom hook
     const outerRadius = useTestScreenSize('radarChart')
 
-    if(datas && datas!=="err"){
+    if(typeof datas !== 'string'){
         return(
             <div className={Styles.radarChart}>
                 <ResponsiveContainer  width="100%" height="100%" className={Styles.container}>
@@ -49,13 +49,9 @@ function RadarCharts(){
                 </ResponsiveContainer>
             </div>
         )
-    }else if(datas===''){
-        return(
-            <><Error message="404"/></>
-        )
     }else {
         return (
-            <><Error message="err"/></>
+            <><Error message={datas}/></>
         )
     } 
 }

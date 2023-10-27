@@ -30,5 +30,5 @@ export function useFetchMainData(userId, modeProd) {
         fetchMainData(url.userId,setDatas)
     }
   }, [userId, modeProd,url, handleUserSelect])
-  return datas;
+  return datas
 }

@@ -15,7 +15,7 @@ function RadialBarCharts(){
     // Checking the modeProd for the call and retrieving data using a custom hook
     const datas = useFetchMainData(selectedUserId, modeProd)
 
-  if (datas && datas!=="err"){
+  if (datas && datas!=="err" && datas!=="noUser"){
   // Table to format data
   const dataArray = [{ name: datas.score * 100 + '%', value: datas.score * 100, fill:'#ff0000'}]
 
@@ -42,13 +42,9 @@ function RadialBarCharts(){
             </ResponsiveContainer>
       </div>
     )
-  }else if(datas===''){
-    return(
-        <><Error message="404"/></>
-    )
   }else {
     return (
-        <><Error message="err"/></>
+        <><Error message={datas}/></>
     )
   } 
 }
