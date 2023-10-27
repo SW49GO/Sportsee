@@ -12,7 +12,6 @@ import { useContext} from 'react'
  * @returns {JSX.Element}
  */
 function Profil(){
-    console.log('PROFIL')
     const url = useParams()
     const {selectedUserId, modeProd}=useContext(Context)
 
@@ -20,7 +19,6 @@ function Profil(){
     const datas = useFetchMainData(selectedUserId, modeProd)
 
     if(datas && datas!=="err" && datas!=="noUser"){
-        console.log('datas:', datas)
         if(Object.keys(url).length===1  && Object.keys(url)[0] === "userId"){
             //Access to the UserProfil component for any user (user or developer)
             return (

@@ -1,5 +1,5 @@
 .banner{
-    margin: 7% 0 2.5rem 6%;
+    margin: 7% 0 5% 3%;
     line-height: 1rem;
 }
 .banner p:first-child{
@@ -13,10 +13,16 @@
 .message{
     font-size: 1rem;
 } 
+.identity{
+    display: inline-block;
+    border: 5px solid #ff0000;
+    padding: 1rem;
+    border-radius: 1rem;;
+}
 .lastName{
-    font-size: 1.5rem;
     margin-bottom: 1rem;
 }
-.lastName + p{
+.lastName, .lastName + p{
     font-size: 1.5rem; 
+    font-weight: 700;
 }

@@ -15,7 +15,6 @@ import { useContext } from 'react'
  * @returns {JSX.Element}
  */
 function DevContainer(){
-    console.log('DEVCONTAINER')
     const url = useParams()
 
     const {modeProd}=useContext(Context)
@@ -37,7 +36,7 @@ function DevContainer(){
                     </div>
                     <div className={Styles.cards}>
                         {keyDataArray.map((name, index) => (
-                            <Card key={index} icon={index} name={name.charAt(0).toUpperCase() + name.slice(1)} cardValue={Number(valueDataArray[index]).toLocaleString("en-US") } />
+                            <Card key={index} icon={index} name={name.charAt(0).toUpperCase() + name.slice(1)} cardValue={Number(valueDataArray[index]).toLocaleString("en-US")} container='dev'/>
                             ))
                         }
                     </div>

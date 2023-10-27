@@ -17,7 +17,6 @@ import { useContext} from 'react'
  * @returns {JSX.Element}
  */
 function UserInfos(){
-    console.log('USERPROFIL')
     const {selectedUserId, modeProd}=useContext(Context)
     // Checking the modeProd for the call and retrieving data using a custom Hook
     const datas = useFetchMainData(selectedUserId, modeProd)
@@ -65,8 +64,8 @@ function UserInfos(){
                 <>
                     <div>
                         <BannerUser/>
-                        <h3 className={Styles.completion}>Complétion de l'objectif journalier :</h3>
                     </div>
+                    <h3 className={Styles.completion}>Complétion de l'objectif journalier :</h3>
                     <div className={Styles.containerDev}>
                         <div className={Styles.radialBarChart}>
                             <RadialBarCharts/>

@@ -21,8 +21,8 @@ function BannerUser(){
                         <p>Bonjour <span>{datas.userInfos.firstName.charAt(0).toUpperCase() + datas.userInfos.firstName.slice(1)}</span></p>
                         <p className={Styles.message}>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
                         </>
-                        :<><p>Utilisateur: </p><p className={Styles.lastName}>IDENTITE : { datas.userInfos.lastName.charAt(0).toUpperCase() + datas.userInfos.lastName.slice(1)} {datas.userInfos.firstName.charAt(0).toUpperCase() + datas.userInfos.firstName.slice(1)}</p><p>AGE : {datas.userInfos.age} ans</p>
-                        </>
+                        :<div className={Styles.identity}><p>Utilisateur  : </p><p className={Styles.lastName}>IDENTITE : { datas.userInfos.lastName.charAt(0).toUpperCase() + datas.userInfos.lastName.slice(1)} {datas.userInfos.firstName.charAt(0).toUpperCase() + datas.userInfos.firstName.slice(1)}</p><p>AGE : {datas.userInfos.age} ans</p>
+                        </div>
                 }
             </div>
         )

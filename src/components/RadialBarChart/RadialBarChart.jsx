@@ -1,4 +1,5 @@
 import { RadialBarChart, ResponsiveContainer,RadialBar} from 'recharts'
+import { useTestScreenSize } from '../../hooks/useTestScreenSize'
 import { useFetchMainData } from '../../hooks/useFetchMainData'
 import Styles from '../../styles/radialBarChart.module.css'
 import { Context } from '../../context/Context'
@@ -14,6 +15,8 @@ function RadialBarCharts(){
     const {selectedUserId, modeProd}=useContext(Context)
     // Checking the modeProd for the call and retrieving data using a custom hook
     const datas = useFetchMainData(selectedUserId, modeProd)
+     // Check screen size to adjust outerRadius of RadarChart with custom hook
+     const circleR = useTestScreenSize('radialBarChart')+'%'
 
   if (datas && datas!=="err" && datas!=="noUser"){
   // Table to format data
@@ -24,7 +27,7 @@ function RadialBarCharts(){
         <h3 className={Styles.title}>Score</h3>
         {/* SVG circle white in the middle of RadialBarChart */}
         <svg width="60%" height="60%" className={Styles.svg}>
-            <circle cx="50%" cy="50%" r="42%" fill="#fff"/>
+            <circle cx="50%" cy="50%" r={circleR} fill="#fff"/>
         </svg>
         <div className={Styles.legend}><p>{dataArray[0].name}</p><p>de votre objectif</p></div>
             <ResponsiveContainer width="100%" height="100%" className={Styles.container}>

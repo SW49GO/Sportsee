@@ -12,8 +12,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap:1rem;
-    width: 90%;
+    gap: 1rem;
 }
 .radarChart h3, .lineChart h2, .barCharts h3:first-child{
     display: inline-block;

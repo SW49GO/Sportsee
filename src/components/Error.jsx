@@ -10,7 +10,7 @@ import PropTypes from 'prop-types'
  */
 function Error(props){
     let message = props.message
-    console.log('message:', message)
+
     // Checking pages allowed for users
     const url = useParams()
     const authorizedPage = ['home','profil','settings','community','yoga','swimming','bike','alter']
@@ -20,7 +20,6 @@ function Error(props){
     }else if (url['*'] && !authorizedPage.includes(url['*'])) {
         message = "false"
     }
-console.log(message)
     return (
         <div className={Styles.message}>
           {(() => {

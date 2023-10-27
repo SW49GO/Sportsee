@@ -3,17 +3,19 @@
     gap:1rem;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.02);
-    height: 18.5%;
+    height:20.3%;
     padding: 0.2rem;
     border-radius: 5px;
-    width: 16.125rem;
 }
 .container img {
-    margin: 1rem;
+    margin: 3%;
+}
+.icon{
+    width: 35%;
 }
 .legend{
     line-height: 1.5rem;
-    margin-right: 2.5rem;
+    width: 38%;
 }
 .legend p:first-child{
     font-size: 1.25rem;
@@ -24,4 +26,7 @@
     font-size: .875rem;
     font-weight: 500;
     color:#74798C;
+}
+.dev{
+    width: 20%;
 }

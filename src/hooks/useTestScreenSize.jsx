@@ -9,10 +9,10 @@ export function useTestScreenSize(theNameChart){
 
     const [option, setOption]= useState(null)
     const [paddingBar, setPaddingBar] = useState(-30)
-    const [outerRadius, setOuterRadius] = useState(67)
+    const [outerRadius, setOuterRadius] = useState(75)
+    const [circleR, setCircleR] = useState(42) 
 
     useEffect(() => {
-
         const handleResize = () => {
             const screenWidth = window.innerWidth
             const screenHeight = window.innerHeight
@@ -26,15 +26,17 @@ export function useTestScreenSize(theNameChart){
                 }
                 if(theNameChart==='radarChart'){
                     if (screenWidth <= 1024) {
-                        setOuterRadius(33)
-                    } else {
-                        if(screenHeight===780){
-                            setOuterRadius(55)
-                        }else if(screenHeight===1024){
-                            setOuterRadius(75)
-                        }
+                        setOuterRadius(46)
+                    }else if(screenWidth === 1440 && screenHeight === 1024){
+                        setOuterRadius(82)
                     }
                     setOption(outerRadius)
+                }
+                if(theNameChart==='radialBarChart'){
+                    if(screenWidth > 1440){
+                        setCircleR(39)
+                    }
+                    setOption(circleR)
                 }
             }
         // Event to detect screen size change
@@ -44,6 +46,6 @@ export function useTestScreenSize(theNameChart){
         return () => {
         window.removeEventListener('resize', handleResize)
         }
-    }, [theNameChart,paddingBar,outerRadius])
+    }, [theNameChart,paddingBar,outerRadius,circleR])
     return option
 }
