@@ -1,6 +1,5 @@
 import {USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE} from '../dataMocked/datasMocked'
-import { TranslateUserPerformance } from './translateUserPerformance'
-import {ChangeUserMainData} from './changeUserMainData'
+import { Modelisation } from './classModelisation'
 
 /**
  * Function to retrieve all users for simulation connexion
@@ -16,6 +15,8 @@ export async function getAllUser(){
  * @param {function} setDatas to initialize 'datas'
  */
 export async function fetchMainData(userId, setDatas) {
+    // Instance of Modelisation Class
+    const classModel = new Modelisation()
     // Standardize User ID
     if(userId && userId.userId){
         userId=userId.userId
@@ -26,7 +27,7 @@ export async function fetchMainData(userId, setDatas) {
             if(userId && user.id === parseInt(userId)){
                 if(user!== null){
                     // Replace todayScore and translate keyData
-                    ChangeUserMainData(user)
+                    classModel.changeUserMainData(user)
                 }
                 return user
             }
@@ -43,7 +44,7 @@ export async function fetchMainData(userId, setDatas) {
                 // [200-299] réponse ok from network
                 if(response.ok) {
                     const results = await response.json()
-                    ChangeUserMainData(results.data)
+                    classModel.changeUserMainData(results.data)
                     setDatas(results.data)
                 }else if(response.status===404){
                     setDatas('noUser')
@@ -62,6 +63,8 @@ export async function fetchMainData(userId, setDatas) {
      * @param {string} endpoint the end of url
      */
     export async function fetchData(userId, setDatas, endpoint) {
+    // Instance of Modelisation Class
+    const classModel = new Modelisation()
      // Standardize User ID
      if(userId && userId.userId){
         userId=userId.userId
@@ -100,7 +103,7 @@ export async function fetchMainData(userId, setDatas) {
                 if(user.userId === parseInt(userId)){
                     if(user!==null){
                         // Translate English to French data kind
-                        TranslateUserPerformance(user)
+                        classModel.translateUserPerformance(user)
                     }
                     return user
                 }
@@ -126,7 +129,7 @@ export async function fetchMainData(userId, setDatas) {
                     }
                 if(endpoint === "performance"){
                     if(results.data!==null){
-                        TranslateUserPerformance(results.data)
+                        classModel.translateUserPerformance(results.data)
                     }
                     setDatas(results.data)
                 }

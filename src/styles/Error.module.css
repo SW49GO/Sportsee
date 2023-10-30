@@ -2,6 +2,7 @@
     position:relative;
     top: 5rem;
     left:5rem;
+    width: 20%;
 }
 .network,.wait,.noUser,.noExist{
     position:relative;
